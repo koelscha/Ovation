@@ -8,6 +8,9 @@ cycler==0.10.0
 cymem==1.31.2
 cytoolz==0.8.2
 dill==0.2.7.1
+django
+djangorestframework
+django-filter 
 ftfy==4.4.3
 gensim==2.3.0
 gtts
