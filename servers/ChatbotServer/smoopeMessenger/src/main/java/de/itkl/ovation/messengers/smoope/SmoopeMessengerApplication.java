@@ -9,13 +9,15 @@ import de.itkl.ovation.messengers.smoope.resources.message.MessageSender;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class SmoopeMessengerApplication extends Application<SmoopeMessengerConfiguration> {
-    private String appSecret = "eeb5ea9288264115bbaf9f88eeaba0b1";
-    private String appId = "b319f4e601d842edb1399369abf8779e";
+
+    Logger logger = LoggerFactory.getLogger("SmoopeMessenger");
 
     public static void main(String[] args) throws Exception {
         new SmoopeMessengerApplication().run(args);
@@ -36,7 +38,7 @@ public class SmoopeMessengerApplication extends Application<SmoopeMessengerConfi
                     Environment environment) {
         ChatBots chatBots = new ChatBots();
 
-        SmoopeApi smoope =new SmoopeClient.Builder(appId, appSecret).sandbox(true).build();
+        SmoopeApi smoope =new SmoopeClient.Builder(configuration.getSmoopeAppId(), configuration.getSmoopeSecret()).sandbox(true).build();
 
         SmoopeMessageImporter importer = new SmoopeMessageImporter(smoope, chatBots);
         Timer timer = new Timer();

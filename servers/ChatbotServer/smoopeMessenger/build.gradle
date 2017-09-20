@@ -27,7 +27,7 @@ project.ext {
 }
 
 run {
-    args 'server'//, configPath
+    args 'server', configPath
 }
 
 dependencies {
