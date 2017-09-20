@@ -37,7 +37,14 @@ public class MessageSender {
     private void sendMessageToSmoope(ChatBotMessage chatBotMessage) {
         Message chatbotAnswer = Message.text(chatBotMessage.getMessage());
         Conversation conversation = mSmoope.getConversation(chatBotMessage.getClientId());
-        Message message = mSmoope.actAsUser("5436416d-ed23-4907-82c5-232e4e97ee7a").createMessage(chatbotAnswer, conversation);
-        mMessageImporter.updateLatestMessageFor(message, conversation);
+        UserPagedList operatorWithMaximumOneItem = mSmoope.getOperatorsList(1, 1);
+        if (operatorWithMaximumOneItem.getEmbedded().containsKey("users") && operatorWithMaximumOneItem.getContent().size()>0) {
+            User firstOperator = operatorWithMaximumOneItem.getContent().get(0);
+            Message message = mSmoope.actAsUser(firstOperator).createMessage(chatbotAnswer, conversation);
+            mMessageImporter.updateLatestMessageFor(message, conversation);
+        } else {
+            logger.warn("No operators found for current business. Could not sent message out to client!");
+        }
+
     }
 }
