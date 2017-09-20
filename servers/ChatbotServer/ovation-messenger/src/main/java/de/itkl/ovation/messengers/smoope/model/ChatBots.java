@@ -1,8 +1,7 @@
 package de.itkl.ovation.messengers.smoope.model;
 
 import de.itkl.ovation.messengers.smoope.resources.chatbot.ChatBot;
-import de.itkl.ovation.messengers.smoope.resources.clientmessage.ClientMessage;
-import de.itkl.ovation.messengers.smoope.resources.message.Message;
+import de.itkl.ovation.messengers.smoope.resources.message.ChatBotMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,20 +25,20 @@ public class ChatBots {
         this.mCurrentChatbots.add(bot);
     }
 
-    public void sendMessageToAllBots(Message message) {
+    public void sendMessageToAllBots(ChatBotMessage chatBotMessage) {
         for (ChatBot bot :getAllRegistered()) {
-            this.sendMessageToBot(message, bot);
+            this.sendMessageToBot(chatBotMessage, bot);
         }
     }
 
-    private void sendMessageToBot(Message message, ChatBot bot) {
+    private void sendMessageToBot(ChatBotMessage chatBotMessage, ChatBot bot) {
         WebTarget target = client.target(bot.getUrl());
         Invocation.Builder invocationBuilder = target.request(MediaType.APPLICATION_JSON);
-        Response response = invocationBuilder.post(Entity.entity(message, MediaType.APPLICATION_JSON));
+        Response response = invocationBuilder.post(Entity.entity(chatBotMessage, MediaType.APPLICATION_JSON));
         if (response.getStatus() == 200) {
-            logger.info("Successfully sent the message with content '" + message.getMessage()+ "' from client '" +message.getClientId() + "' to the bot with url '" + bot.getUrl() + "'.");
+            logger.info("Successfully sent the message with content '" + chatBotMessage.getMessage()+ "' from client '" + chatBotMessage.getClientId() + "' to the bot with url '" + bot.getUrl() + "'.");
         } else {
-            logger.warn("Could not send the message with content '" + message.getMessage()+ "' from client '" +message.getClientId() + "' to the bot with url '" + bot.getUrl() + "'. Reason: " + response.getStatusInfo());
+            logger.warn("Could not send the message with content '" + chatBotMessage.getMessage()+ "' from client '" + chatBotMessage.getClientId() + "' to the bot with url '" + bot.getUrl() + "'. Reason: " + response.getStatusInfo());
         }
     }
 }

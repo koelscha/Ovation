@@ -16,8 +16,8 @@ public class MessageSender {
     @Timed
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response sendMessage(Message message) {
-        logger.info("received the message with content '" + message.getMessage() + "' to be sent to the client '" + message.getClientId() +"'.");
-        return Response.status(200).entity("Successfully sent message with content '" + message.getMessage() + "' to the client '" + message.getClientId() +"'.").build();
+    public Response sendMessage(ChatBotMessage chatBotMessage) {
+        logger.info("received the message with content '" + chatBotMessage.getMessage() + "' to be sent to the client '" + chatBotMessage.getClientId() +"'.");
+        return Response.status(200).entity("Successfully sent message with content '" + chatBotMessage.getMessage() + "' to the client '" + chatBotMessage.getClientId() +"'.").build();
     }
 }
