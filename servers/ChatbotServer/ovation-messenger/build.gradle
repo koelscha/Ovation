@@ -32,6 +32,9 @@ run {
 
 dependencies {
     compile "io.dropwizard:dropwizard-core:$dropwizardVersion"
+    compile 'com.smoope.sdk:smoope-rest-api:1.8.1'
+
+
 }
 
 jar {

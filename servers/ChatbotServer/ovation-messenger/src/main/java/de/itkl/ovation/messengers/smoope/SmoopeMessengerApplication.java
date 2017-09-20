@@ -1,5 +1,7 @@
 package de.itkl.ovation.messengers.smoope;
 
+import com.smoope.sdk.SmoopeApi;
+import com.smoope.sdk.impl.SmoopeClient;
 import de.itkl.ovation.messengers.smoope.model.ChatBots;
 import de.itkl.ovation.messengers.smoope.resources.chatbot.ChatBotRegistration;
 import de.itkl.ovation.messengers.smoope.resources.clientmessage.ClientMessageReceiver;
@@ -26,6 +28,12 @@ public class SmoopeMessengerApplication extends Application<SmoopeMessengerConfi
     @Override
     public void run(SmoopeMessengerConfiguration configuration,
                     Environment environment) {
+
+        SmoopeApi smoope = new SmoopeClient("APP_ID", "SECRET");
+
+        MessageImporter importer = new MessageImporter(smoope);
+        importer.importConversations();
+
 
         ChatBots chatBots = new ChatBots();
         final ChatBotRegistration resource = new ChatBotRegistration(chatBots);

@@ -1,6 +1,7 @@
 package de.itkl.ovation.messengers.smoope.resources.message;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import de.itkl.ovation.messengers.smoope.resources.clientmessage.ClientMessage;
 
 public class Message {
 
@@ -9,6 +10,11 @@ public class Message {
 
     public Message() {
         // Jackson deserialization
+    }
+
+    public Message(ClientMessage message) {
+        this.message = message.getMessage();
+        this.clientId = message.getClientId();
     }
 
 
