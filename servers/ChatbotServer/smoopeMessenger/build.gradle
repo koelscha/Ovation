@@ -8,7 +8,7 @@ buildscript {      // Configuration for building
         mavenCentral()
     }
     dependencies {
-        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.1'
     }
 }
 
@@ -35,6 +35,12 @@ dependencies {
     compile 'com.smoope.sdk:smoope-rest-api:1.8.1'
 
 
+}
+
+shadowJar {
+    mergeServiceFiles()
+    exclude 'META-INF/*.DSA'
+    exclude 'META-INF/*.RSA'
 }
 
 jar {
