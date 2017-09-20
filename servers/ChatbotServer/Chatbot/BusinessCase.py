@@ -1,9 +1,11 @@
 class BusinessCase:
-    def __init__(self, intent, entities=None, businessLogic=None, confirmationPhrase=""):
-        self.intent = intent
+    def __init__(self, entities=None, businessLogic=None, confirmationPhrase=""):
         self.entities = entities
         self.businessLogic = businessLogic
         self.confirmationPhrase = confirmationPhrase
+
+    def processMessage(self, message):
+        pass
 
     def getNextEmptyEntity(self):
         if not self.entities:

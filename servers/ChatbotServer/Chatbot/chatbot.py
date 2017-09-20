@@ -43,10 +43,8 @@ class ChatBot(Resource):
     def __init__(self):
         self.state = State.init
         entities = [Entity("What is your name?", lambda message: message)]
-        #self.businessCases = {"greeting": BusinessCase("greeting", confirmationPhrase="How can help you?"),
-        #                      "contract": BusinessCase("contract", entities, confirmationPhrase="Your name is {}.")}
-        self.businessCases = [BusinessCase("greeting", confirmationPhrase="How can help you?"),
-                              BusinessCase("contract", entities, confirmationPhrase="Your name is {}.")]
+        self.businessCases = {"greeting": BusinessCase(confirmationPhrase="How can help you?"),
+                              "contract": BusinessCase(entities, confirmationPhrase="Your name is {}.")}
         self.currentBusinessCase = None
         self.currentEntity = None
 
@@ -54,16 +52,10 @@ class ChatBot(Resource):
     def onMessageReceived(self, message, clientId):
         if self.state is State.init:
             intent = IntentClassifier.classify(message)
-
-            #self.currentBusinessCase = self.businessCases[intent]
-            #self.state = State.extract
-            for businessCase in self.businessCases:
-                if intent == businessCase.intent:
-                    self.currentBusinessCase = businessCase
-                    self.state = State.extract
-                    break
-
+            self.currentBusinessCase = self.businessCases[intent]
+            self.state = State.extract
             self.currentEntity = self.currentBusinessCase.getNextEmptyEntity()
+
             if self.currentEntity:
                 self.sendMessage(clientId, self.currentEntity.question)
                 self.state = State.extract
