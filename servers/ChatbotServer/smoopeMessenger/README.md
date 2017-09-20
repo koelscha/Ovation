@@ -6,6 +6,11 @@ Enter your smoope credentials (app_id, secret) into the main class src/main/java
 
 ./gradlew clean run
 
+# How to deploy (for debugging):
+
+./gradlew clean shadowJar
+java -jar build/libs/smoopeMessenger-all.jar server
+
 # Endpoints
 
 ## /chatbot
