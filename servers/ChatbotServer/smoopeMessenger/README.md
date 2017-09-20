@@ -1,3 +1,7 @@
+# How to prepare:
+
+Enter your smoope credentials (app_id, secret) into the main class src/main/java/.../SmoopeMessengerApplication.java
+
 # How to run (for debugging):
 
 ./gradlew clean run
