@@ -20,7 +20,12 @@ public class ChatBotMessage {
     }
 
     public ChatBotMessage(Message message, Conversation conversation) {
-        this.message = message.getParts().toString();
+        this.message = "";
+        for (Message.Part part :message.getParts()) {
+            if (part.isText()) {
+                this.message += part.getBody();
+            }
+        }
         this.clientId = conversation.getId();
     }
 

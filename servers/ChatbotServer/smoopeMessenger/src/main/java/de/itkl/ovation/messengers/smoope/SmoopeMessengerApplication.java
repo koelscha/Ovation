@@ -52,7 +52,7 @@ public class SmoopeMessengerApplication extends Application<SmoopeMessengerConfi
         final ChatBotRegistration resource = new ChatBotRegistration(chatBots);
         environment.jersey().register(resource);
 
-        final MessageSender messageSender = new MessageSender();
+        final MessageSender messageSender = new MessageSender(smoope, importer);
         environment.jersey().register(messageSender);
 
         final ClientMessageReceiver clientMessageReceiver = new ClientMessageReceiver(chatBots);

@@ -8,21 +8,23 @@ import org.slf4j.LoggerFactory;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class ChatBots {
 
-    private Set<ChatBot> mCurrentChatbots = new HashSet<ChatBot>();
+    private Map<String, ChatBot> mCurrentChatbots = new HashMap<>();
     private Logger logger = LoggerFactory.getLogger("chatbots-model");
     private Client client = ClientBuilder.newClient();
 
     public Set<ChatBot> getAllRegistered() {
-        return mCurrentChatbots;
+        return new HashSet<>(mCurrentChatbots.values());
     }
 
     public void register(ChatBot bot) {
-        this.mCurrentChatbots.add(bot);
+        this.mCurrentChatbots.put(bot.getUrl(), bot);
     }
 
     public void sendMessageToAllBots(ChatBotMessage chatBotMessage) {
