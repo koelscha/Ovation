@@ -14,8 +14,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class SmoopeMessengerApplication extends Application<SmoopeMessengerConfiguration> {
-    private String appSecret = "SECRET";
-    private String appId = "APP_ID";
+    private String appSecret = "eeb5ea9288264115bbaf9f88eeaba0b1";
+    private String appId = "b319f4e601d842edb1399369abf8779e";
 
     public static void main(String[] args) throws Exception {
         new SmoopeMessengerApplication().run(args);
