@@ -73,7 +73,7 @@ public class SmoopeMessageImporter {
 
     private void triggerMessageReceived(Message message, Conversation conversation) {
         this.lastMessages.put(conversation.getId(), message.getId());
-        logger.info("Received new message with id " + message.getId() + " for conversation " + conversation.getId());
+        logger.info("Received new message with id " + message.getId() + " for conversation " + conversation.getId() + ". Forward message to all chatbots.");
         mChatBots.sendMessageToAllBots(new ChatBotMessage(message, conversation));
 
     }
