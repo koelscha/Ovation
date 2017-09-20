@@ -8,9 +8,10 @@ import json
 app = Flask(__name__)
 api = Api(app)
 
+
+
 serverAddress = "192.168.54.37:8080"
-
-
+#serverAddress = "127.0.0.1:8080"
 
 http = requests.Session()
 headers = {'content-type': 'application/json'}
