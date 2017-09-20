@@ -12,10 +12,11 @@ api = Api(app)
 
 serverAddress = "192.168.54.37:8080"
 #serverAddress = "127.0.0.1:8080"
+chatBotAddress = "192.168.54.26:5000"
 
 http = requests.Session()
 headers = {'content-type': 'application/json'}
-myEndpoint = {'url': 'http://192.168.54.26:5000/message'}
+myEndpoint = {'url': urlparse.urlunparse(('http', chatBotAddress, '/message', '', '', ''))}
 serverRegister = urlparse.urlunparse(('http', serverAddress, '/chatbot', '', '', ''))
 serverMessage = urlparse.urlunparse(('http', serverAddress, '/message', '', '', ''))
 
