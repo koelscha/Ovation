@@ -9,8 +9,8 @@ from rasa_nlu.model import Metadata, Interpreter
 """
 RASA Traning
 """
-training_data = load_data('rasa/data/demo-rasa.json')
-trainer = Trainer(RasaNLUConfig("rasa/config_spacy.json"))
+training_data = load_data('./demo-rasa.json')
+trainer = Trainer(RasaNLUConfig("./config_spacy.json"))
 trainer.train(training_data)
 model_directory = trainer.persist('./models/')
 
