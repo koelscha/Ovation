@@ -1,20 +1,48 @@
+import json
 import unittest
 
 from chatbot import ChatBot
 
 
 class ChatbotTest(unittest.TestCase):
+    businessCases = {
+        "api": "1.0.0-SNAPSHOT",
+        "businessCases": [
+            {
+                "name": "Test",
+                "intent": "contract",
+                "confirmationPhrase": "Bye!",
+                "entities": [
+                    {
+                        "name": "name",
+                        "question": "Name?",
+                        "extractor": "MirrorExtractor"
+                    }
+                ],
+                "businessLogic": "EntityResponder",
+                "openingQuestion": "I want to know your name."
+            }
+        ]
+    }
+    file_name = 'testBusinessCases.json'
+
+    def createTestJsonFile(self):
+        with open(self.file_name, 'w') as f:
+            f.write(json.dumps(self.businessCases, indent=4))
+
     def setUp(self):
-        self.chatbot = ChatBot()
+        self.createTestJsonFile()
+        self.chatbot = ChatBot(self.file_name)
+
+    def tearDown(self):
+        import os
+        os.remove(self.file_name)
 
     def test_answer_with_name(self):
-        self.chatbot.processMessage("I want to move!", "1")
-        self.assertEqual(self.chatbot.processMessage("Max Mustermann", "1"), "Your name is {}.")
-
-    def test_greeting_with_contract(self):
-        self.assertEqual(self.chatbot.processMessage("Hello Ovation", "1"), "How can help you?")
-        self.chatbot.processMessage("I want to move!", "1")
-        self.assertEqual(self.chatbot.processMessage("Max Mustermann", "1"), "Your name is {}.")
+        self.assertEqual(self.chatbot.processMessage("Contract", "1"), "I want to know your name.")
+        self.assertEqual(self.chatbot.processMessage("Nice", "1"), "Name?")
+        self.assertEqual(self.chatbot.processMessage("Dominik", "1"), "Dominik")
+        self.assertEqual(self.chatbot.processMessage("whatever", "1"), "Bye!")
 
 if __name__ == '__main__':
     unittest.main()

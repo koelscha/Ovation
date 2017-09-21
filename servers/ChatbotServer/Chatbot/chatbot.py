@@ -1,50 +1,27 @@
-from enum import Enum
-
-import IntentClassifier
-from BusinessCase import BusinessCase
-from BusinessLogic import InsuranceCalculator
-from Entity import Entity
-
-from Downloader import download
 import json
 
-
-class State(Enum):
-    init = 1
-    waitingForAnswer = 2
+import IntentClassifier
+from BusinessCase import BusinessCase, State
 
 
 class ChatBot:
-    def __init__(self, filename):
-        self.config = json.load(filename)
-        self.state = State.init
-        self.businessCases = [BusinessCase(b) for b in self.config["businessCases"]]
+    def __init__(self, file_name):
+        with open(file_name) as f:
+            self.config = json.load(f)
+        businessCases = [BusinessCase(b) for b in self.config["businessCases"]]
+        self.businessCases = {b.intent: b for b in businessCases}
         self.currentBusinessCase = None
-        self.currentEntity = None
 
-
-    def processMessage(self, message, clientId, attachments):
+    def processMessage(self, message, clientId, attachments=None):
         result = None
 
         if not self.currentBusinessCase:
             intent = IntentClassifier.classify(message)
             self.currentBusinessCase = self.businessCases[intent]
-            self.currentEntity = self.currentBusinessCase.getNextEmptyEntity()
 
-        if self.currentEntity:
-            if self.state is State.init:
-              result = self.currentEntity.question
-              self.state =  State.waitingForAnswer
-            else:
-                self.currentEntity.value = self.currentEntity.extract(message, attachments)
-                self.currentEntity = self.currentBusinessCase.getNextEmptyEntity()
-                if self.currentEntity:
-                    result = self.currentEntity.question
-
-        if not result: # and not self.currentEntity:
-            assert(not self.currentEntity)
-            result = self.currentBusinessCase.confirmationPhrase
+        if self.currentBusinessCase.state is State.confirmed:
             self.currentBusinessCase = None
+        else:
+            result = self.currentBusinessCase.processMessage(message, clientId, attachments)
 
         return result
-

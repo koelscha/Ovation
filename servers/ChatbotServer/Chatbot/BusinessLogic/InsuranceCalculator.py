@@ -1,7 +1,4 @@
-class BusinessLogic:
-    def processEntities(self, entities):
-        pass
-
+from BusinessLogic.BusinessLogic import BusinessLogic
 
 class InsuranceCalculator(BusinessLogic):
     demoAnswer = "We can modify your household insurance according to the information you gave us beginning\

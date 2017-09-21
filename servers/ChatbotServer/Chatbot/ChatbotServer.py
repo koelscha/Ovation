@@ -1,15 +1,16 @@
-from flask import Flask, request
-from flask_restful import Resource, Api
-import requests
-import urllib.parse as urlparse
+import argparse
 import json
 import threading
-import argparse
+import urllib.parse as urlparse
+
+import requests
+from flask import Flask, request
+from flask_restful import Resource, Api
 
 from chatbot import ChatBot
 
 parser = argparse.ArgumentParser()
-parser.add_argument("json", type=argparse.FileType('r'))
+parser.add_argument("json", type=str)
 args = parser.parse_args()
 
 class ChatbotServer:
