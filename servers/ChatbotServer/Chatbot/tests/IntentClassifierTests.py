@@ -5,9 +5,7 @@ from IntentClassifiers.RasaClassifier import RasaClassifier
 
 class IntentClassifierTests(unittest.TestCase):
     def setUp(self):
-        rasa_model = '../rasa/models/default/model_20170921-232116'
-        rasa_config = "../rasa/config_spacy.json"
-        self.rasa_classifier = RasaClassifier(rasa_model, rasa_config)
+        self.rasa_classifier = RasaClassifier()
 
     def test_greeting_recognition(self):
         test_messages = {"greeting": ["Hi there.",

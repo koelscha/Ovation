@@ -39,7 +39,7 @@ class BusinessCase:
                     self.state=State.confirmed
                 else:
                     self.state = State.waitForConfirm
-                return self.businessLogic.processEntities(self.entities)
+                return self.businessLogic.processEntities(self.entities.values())
             else:
                 self.state = State.waitForAnswer
                 return self.currentEntity.question
