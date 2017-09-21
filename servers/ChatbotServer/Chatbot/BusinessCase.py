@@ -1,8 +1,6 @@
 import importlib
-from enum import Enum
-
 from Entity import Entity
-
+from enum import Enum
 
 class State(Enum):
     init = 1
@@ -11,12 +9,11 @@ class State(Enum):
     confirmed = 4
 
 class BusinessCase:
-    counter = 0
-
     def __init__(self, config):
         self.name = config["name"]
         self.intent = config["intent"]
-        self.entities = [Entity(e) for e in config["entities"]]
+        entities = [Entity(e) for e in config["entities"]]
+        self.entities = {e.name: e for e in entities}
         module = importlib.import_module("BusinessLogic." + config["businessLogic"])
         self.businessLogic = getattr(module, config["businessLogic"])()
         self.confirmationPhrase = config["confirmationPhrase"] if "confirmationPhrase" in config else None
@@ -46,11 +43,23 @@ class BusinessCase:
             self.state = State.confirmed
             return self.confirmationPhrase
 
+
     def extractEntities(self, message, attachments):
-        if self.currentEntity:
-            self.currentEntity.value = self.currentEntity.extractor.extractFromText(message)
-        else:
-            pass  # later general entity extractor
+        if attachments:
+            for attachment in attachments:
+                emptyEntities = self.getEmptyEntities()
+                matches = self.currentEntity.extractFromImage(attachment, emptyEntities)
+                for match in matches:
+                    self.entities[match.name].value = match.value
+                    self.entities[match.name].confidence = match.confidence
+
+        if message:
+            emptyEntities = self.getEmptyEntities()
+            matches = self.currentEntity.extractFromText(message, emptyEntities)
+            for match in matches:
+                self.entities[match.name].value = match.value
+                self.entities[match.name].confidence = match.confidence
+
 
     def getNextEmptyEntity(self):
         if not self.entities:
@@ -59,3 +68,12 @@ class BusinessCase:
             if not entity.value:
                 return entity
         return None
+
+    def getEmptyEntities(self):
+        if not self.entities:
+            return None
+        entities = []
+        for entity in self.entities:
+            if not entity.value:
+                entities.append(entity.name)
+        return entities
