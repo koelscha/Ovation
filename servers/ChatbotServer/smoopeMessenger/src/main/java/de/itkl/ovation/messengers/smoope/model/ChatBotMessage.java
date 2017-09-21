@@ -1,14 +1,12 @@
-package de.itkl.ovation.messengers.smoope.resources.message;
+package de.itkl.ovation.messengers.smoope.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.smoope.sdk.objects.Conversation;
 import com.smoope.sdk.objects.Message;
 import de.itkl.ovation.messengers.smoope.resources.clientmessage.ClientMessage;
-import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class ChatBotMessage {
 

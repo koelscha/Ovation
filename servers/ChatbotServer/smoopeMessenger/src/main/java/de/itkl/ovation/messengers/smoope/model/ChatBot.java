@@ -1,4 +1,4 @@
-package de.itkl.ovation.messengers.smoope.resources.chatbot;
+package de.itkl.ovation.messengers.smoope.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

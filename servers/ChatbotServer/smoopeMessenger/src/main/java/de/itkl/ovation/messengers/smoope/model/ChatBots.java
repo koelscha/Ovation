@@ -1,7 +1,5 @@
 package de.itkl.ovation.messengers.smoope.model;
 
-import de.itkl.ovation.messengers.smoope.resources.chatbot.ChatBot;
-import de.itkl.ovation.messengers.smoope.resources.message.ChatBotMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

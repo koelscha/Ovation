@@ -1,6 +1,7 @@
 package de.itkl.ovation.messengers.smoope.resources.chatbot;
 
 import com.codahale.metrics.annotation.Timed;
+import de.itkl.ovation.messengers.smoope.model.ChatBot;
 import de.itkl.ovation.messengers.smoope.model.ChatBots;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

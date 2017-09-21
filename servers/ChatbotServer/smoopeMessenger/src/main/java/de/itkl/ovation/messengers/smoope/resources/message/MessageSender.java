@@ -2,10 +2,10 @@ package de.itkl.ovation.messengers.smoope.resources.message;
 
 import com.codahale.metrics.annotation.Timed;
 import com.smoope.sdk.SmoopeApi;
-import com.smoope.sdk.SmoopeApiFactory;
 import com.smoope.sdk.objects.*;
 import com.smoope.sdk.objects.collections.UserPagedList;
 import de.itkl.ovation.messengers.smoope.SmoopeMessageImporter;
+import de.itkl.ovation.messengers.smoope.model.ChatBotMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

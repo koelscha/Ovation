@@ -6,12 +6,10 @@ import com.smoope.sdk.objects.Conversation;
 import com.smoope.sdk.objects.Message;
 import com.smoope.sdk.objects.collections.ConversationPagedList;
 import com.smoope.sdk.objects.collections.MessagesPagedList;
-import com.smoope.sdk.objects.common.Link;
 import com.smoope.sdk.objects.common.filter.ConversationsFilter;
 import com.smoope.sdk.objects.common.filter.MessagesFilter;
 import de.itkl.ovation.messengers.smoope.model.ChatBots;
-import de.itkl.ovation.messengers.smoope.resources.message.ChatBotMessage;
-import de.itkl.ovation.messengers.smoope.resources.message.MessageSender;
+import de.itkl.ovation.messengers.smoope.model.ChatBotMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,7 +17,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
 
 public class SmoopeMessageImporter {
     private final SmoopeApi mSmoope;
