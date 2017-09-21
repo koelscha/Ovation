@@ -1,6 +1,4 @@
-from enum import Enum
-
-import BusinessLogic
+import importlib
 from Entity import Entity
 
 
@@ -17,8 +15,7 @@ class BusinessCase:
         self.name = config["name"]
         self.intent = config["intent"]
         self.entities = [Entity(e) for e in config["entities"]]
-
-        module = getattr(BusinessLogic, config["businessLogic"])
+        module = importlib.import_module("BusinessLogic." + config["businessLogic"])
         self.businessLogic = getattr(module, config["businessLogic"])()
         self.confirmationPhrase = config["confirmationPhrase"]
         self.openingQuestion = config["openingQuestion"]
