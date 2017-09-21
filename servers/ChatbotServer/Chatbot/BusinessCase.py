@@ -4,9 +4,6 @@ class BusinessCase:
         self.businessLogic = businessLogic
         self.confirmationPhrase = confirmationPhrase
 
-    def processMessage(self, message):
-        pass
-
     def getNextEmptyEntity(self):
         if not self.entities:
             return None

@@ -2,6 +2,7 @@ from enum import Enum
 
 import IntentClassifier
 from BusinessCase import BusinessCase
+from BusinessLogic import InsuranceCalculator
 from Entity import Entity
 
 
@@ -15,7 +16,8 @@ class ChatBot:
         self.state = State.init
         entities = [Entity("What is your name?", lambda message: message)]
         self.businessCases = {"greeting": BusinessCase(confirmationPhrase="How can help you?"),
-                              "contract": BusinessCase(entities, confirmationPhrase="Your name is {}.")}
+                              "contract": BusinessCase(entities, InsuranceCalculator(),
+                                                       confirmationPhrase="Your name is {}.")}
         self.currentBusinessCase = None
         self.currentEntity = None
 
