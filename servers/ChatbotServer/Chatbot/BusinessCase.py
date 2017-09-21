@@ -26,12 +26,13 @@ class BusinessCase:
         if "extractor" in config:
             module = importlib.import_module("EntityExtractors." + config["extractor"])
             self.extractor = getattr(module, config["extractor"])()
-        else:
-            self.extractor = None
 
     def processMessage(self, message, clientId, attachments):
         if self.state is State.init:
-            self.state = State.waitForAnswer
+            if self.entities:
+                self.state = State.waitForAnswer
+            else:
+                self.state = State.confirmed
             return self.openingQuestion
         elif self.state is State.waitForAnswer:
             self.extractEntities(message, attachments)

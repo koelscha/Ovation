@@ -33,7 +33,7 @@
     {
       "name": "Welcome",
       "intent": "greeting",
-      "openingQuestion": "Hello, hat can I do for you?"
+      "openingQuestion": "Hello, what can I do for you?"
     }
   ]
 }

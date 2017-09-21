@@ -9,7 +9,7 @@ class PresentationTest(unittest.TestCase):
         self.chatbot = ChatBot(fileName)
 
     def test_answer_with_name(self):
-        self.assertEqual(self.chatbot.processMessage("Hello", "1"), "Hello, hat can I do for you?")
+        self.assertEqual(self.chatbot.processMessage("Hello", "1"), "Hello, what can I do for you?")
         self.assertTrue(self.chatbot.processMessage("Contract", "1").find("When you move we need your new address")>=0)
         self.assertEqual(self.chatbot.processMessage("OK", "1"), "What is the new street name and number?")
         self.assertEqual(self.chatbot.processMessage("Saarbrückerstraße 36", "1"), "What is the new zip code?")
