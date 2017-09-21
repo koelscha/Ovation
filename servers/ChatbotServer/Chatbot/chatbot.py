@@ -10,6 +10,7 @@ class ChatBot:
             self.config = json.load(f)
         businessCases = [BusinessCase(b) for b in self.config["businessCases"]]
         self.businessCases = {b.intent: b for b in businessCases}
+
         self.currentBusinessCase = None
 
     def processMessage(self, message, clientId, attachments=None):
