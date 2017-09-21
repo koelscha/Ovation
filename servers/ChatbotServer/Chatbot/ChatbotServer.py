@@ -9,18 +9,18 @@ from chatbot import ChatBot
 
 class ChatbotServer:
     chatbot = ChatBot()
+    serverAddress = "127.0.0.1:8080"
+    smoopeMessageURL = urlparse.urlunparse(('http', serverAddress, '/message', '', '', ''))
 
     def __init__(self):
         self.app = Flask(__name__)
         self.api = Api(self.app)
         self.api.add_resource(MessageHandler, '/message')
 
-        self.serverAddress = "127.0.0.1:8080"
         self.chatBotAddress = "127.0.0.1:5000"
 
         self.myMessageURL = {'url': urlparse.urlunparse(('http', self.chatBotAddress, '/message', '', '', ''))}
         self.smoopeRegisterURL = urlparse.urlunparse(('http', self.serverAddress, '/chatbot', '', '', ''))
-        self.smoopeMessageURL = urlparse.urlunparse(('http', self.serverAddress, '/message', '', '', ''))
 
 
     def register(self):
@@ -53,7 +53,7 @@ class MessageHandler(Resource):
         data = {'clientId': clientId, 'message': message}
         print("Message sent: " + json.dumps(data))
 
-        response = http.post(self.smoopeMessageURL, data=json.dumps(data), headers=headers)
+        response = http.post(ChatbotServer.smoopeMessageURL, data=json.dumps(data), headers=headers)
         try:
            response.raise_for_status()
         except requests.exceptions.HTTPError:
