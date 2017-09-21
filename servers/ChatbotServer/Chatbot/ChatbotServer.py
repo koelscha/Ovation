@@ -16,7 +16,7 @@ args = parser.parse_args()
 class ChatbotServer:
     chatbot = ChatBot(args.json)
     serverAddress = "127.0.0.1:8080"
-    # serverAddress = "192.168.54.37:8080"
+    serverAddress = "192.168.54.37:8080"
     smoopeMessageURL = urlparse.urlunparse(('http', serverAddress, '/message', '', '', ''))
 
     def __init__(self):

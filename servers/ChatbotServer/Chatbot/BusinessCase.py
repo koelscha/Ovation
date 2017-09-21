@@ -1,6 +1,6 @@
 import importlib
 from Entity import Entity
-
+from enum import Enum
 
 class State(Enum):
     init = 1
