@@ -25,7 +25,7 @@ getEntities(message)</panel_attributes>
     <panel_attributes>Entity
 --
 question
-data
+value
 confidence
 entityExtractor</panel_attributes>
     <additional_attributes/>
