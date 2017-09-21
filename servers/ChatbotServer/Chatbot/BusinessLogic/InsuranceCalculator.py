@@ -1,4 +1,4 @@
-from BusinessLogic.BusinessLogic import BusinessLogic
+from BusinessLogic import BusinessLogic
 
 class InsuranceCalculator(BusinessLogic):
     def processEntities(self, entities):

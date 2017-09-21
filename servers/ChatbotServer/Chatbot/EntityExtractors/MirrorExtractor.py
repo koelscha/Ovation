@@ -1,4 +1,4 @@
-from EntityExtractors.EntityExtractor import EntityExtractor
+from EntityExtractors import EntityExtractor
 from EntityExtractors import Match
 
 

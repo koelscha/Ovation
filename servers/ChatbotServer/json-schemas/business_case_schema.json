@@ -36,8 +36,7 @@
   },
   "required": [
     "name",
-    "intent",
-    "extractor"
+    "intent"
   ],
   "additionalProperties": false
 }
