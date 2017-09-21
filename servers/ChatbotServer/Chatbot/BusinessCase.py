@@ -23,7 +23,7 @@ class BusinessCase:
         self.openingQuestion = config["openingQuestion"]
         self.state = State.init
         self.currentEntity = None
-        if "businessLogic" in config:
+        if "extractor" in config:
             module = importlib.import_module("EntityExtractors." + config["extractor"])
             self.extractor = getattr(module, config["extractor"])()
         else:
