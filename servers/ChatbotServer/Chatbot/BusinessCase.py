@@ -1,6 +1,8 @@
 import importlib
-from Entity import Entity
 from enum import Enum
+
+from Entity import Entity
+
 
 class State(Enum):
     init = 1
@@ -42,8 +44,10 @@ class BusinessCase:
             return self.confirmationPhrase
 
     def extractEntities(self, message, attachments):
-        self.counter += 1
-        self.getNextEmptyEntity().value = str(self.counter)
+        if self.currentEntity:
+            self.currentEntity.value = self.currentEntity.extractor.extractFromText(message)
+        else:
+            pass  # later general entity extractor
 
     def getNextEmptyEntity(self):
         if not self.entities:

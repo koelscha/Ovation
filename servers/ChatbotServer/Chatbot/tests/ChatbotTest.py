@@ -19,23 +19,28 @@ class ChatbotTest(unittest.TestCase):
                         "extractor": "MirrorExtractor"
                     }
                 ],
-                "businessLogic": "InsuranceCalculator",
+                "businessLogic": "EntityResponder",
                 "openingQuestion": "I want to know your name."
             }
         ]
     }
+    file_name = 'testBusinessCases.json'
 
     def createTestJsonFile(self):
-        file_name = 'testBusinessCases.json'
-        with open(file_name, 'w') as f:
+        with open(self.file_name, 'w') as f:
             f.write(json.dumps(self.businessCases, indent=4))
-        return file_name
 
     def setUp(self):
-        self.chatbot = ChatBot(self.createTestJsonFile())
+        self.createTestJsonFile()
+        self.chatbot = ChatBot(self.file_name)
+
+    def tearDown(self):
+        import os
+        os.remove(self.file_name)
 
     def test_answer_with_name(self):
         self.assertEqual(self.chatbot.processMessage("Contract", "1"), "I want to know your name.")
+        self.assertEqual(self.chatbot.processMessage("Nice", "1"), "Name?")
         self.assertEqual(self.chatbot.processMessage("Dominik", "1"), "Dominik")
         self.assertEqual(self.chatbot.processMessage("whatever", "1"), "Bye!")
 
