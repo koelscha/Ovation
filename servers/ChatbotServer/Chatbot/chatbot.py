@@ -2,6 +2,7 @@ import json
 
 from BusinessCase import BusinessCase, State
 #from IntentClassifiers.RasaClassifier import RasaClassifier
+from IntentClassifiers.SimpleClassifier import SimpleClassifier
 
 
 class ChatBot:
