@@ -10,6 +10,7 @@ from chatbot import ChatBot
 class ChatbotServer:
     chatbot = ChatBot()
     serverAddress = "127.0.0.1:8080"
+    #serverAddress = "192.168.54.37:8080"
     smoopeMessageURL = urlparse.urlunparse(('http', serverAddress, '/message', '', '', ''))
 
     def __init__(self):
@@ -18,6 +19,7 @@ class ChatbotServer:
         self.api.add_resource(MessageHandler, '/message')
 
         self.chatBotAddress = "127.0.0.1:5000"
+        #self.chatBotAddress = "192.168.54.26:5000"
 
         self.myMessageURL = {'url': urlparse.urlunparse(('http', self.chatBotAddress, '/message', '', '', ''))}
         self.smoopeRegisterURL = urlparse.urlunparse(('http', self.serverAddress, '/chatbot', '', '', ''))
@@ -40,10 +42,10 @@ class ChatbotServer:
 
 class MessageHandler(Resource):
     def post(self):
-        message, clientId = request.get_json()["message"], request.get_json()["clientId"]
-        self.onMessageReceived(message, clientId)
+        message, clientId, attachments = request.get_json()["message"], request.get_json()["clientId"], request.get_json()["attachments"]
+        self.onMessageReceived(message, clientId, attachments)
 
-    def onMessageReceived(self, message, clientId):
+    def onMessageReceived(self, message, clientId, attachments):
         answer = ChatbotServer.chatbot.processMessage(message, clientId)
         self.sendMessage(clientId, answer)
 
