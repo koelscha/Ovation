@@ -1,6 +1,7 @@
 # How to prepare:
 
-Enter your smoope credentials (app_id, secret) into the main class src/main/java/.../SmoopeMessengerApplication.java
+* Install java 8
+* Enter your smoope credentials (app_id, secret) into the config/example.yaml
 
 # How to run (for debugging):
 
