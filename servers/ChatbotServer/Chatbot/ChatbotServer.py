@@ -35,7 +35,7 @@ class ChatbotServer:
 
 
     def start(self):
-        #self.register()
+        self.register()
         self.app.run(host='0.0.0.0')
 
 
@@ -48,14 +48,17 @@ class MessageHandler(Resource):
         answer = ChatbotServer.chatbot.processMessage(message, clientId)
         self.sendMessage(clientId, answer)
 
-    def sendMessage(selfs, clientId, message):
+    def sendMessage(self, clientId, message):
+        http = requests.Session()
+        headers = {'content-type': 'application/json'}
         data = {'clientId': clientId, 'message': message}
         print("Message sent: " + json.dumps(data))
-        # r = http.post(serverMessage, data=json.dumps(data), headers=headers)
-        # try:
-        #    r.raise_for_status()
-        # except requests.exceptions.HTTPError:
-        #    print('Request failed with http status ' + str(r.status_code))
+
+        response = http.post(self.smoopeMessageURL, data=json.dumps(data), headers=headers)
+        try:
+           response.raise_for_status()
+        except requests.exceptions.HTTPError:
+           print('Request failed with http status ' + str(response.status_code))
 
 
 if __name__ == '__main__':
