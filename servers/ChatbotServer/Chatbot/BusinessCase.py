@@ -12,10 +12,13 @@ class BusinessCase:
     def __init__(self, config):
         self.name = config["name"]
         self.intent = config["intent"]
-        entities = [Entity(e) for e in config["entities"]]
+        entities = [Entity(e) for e in config["entities"]] if "entities" in config else []
         self.entities = {e.name: e for e in entities}
-        module = importlib.import_module("BusinessLogic." + config["businessLogic"])
-        self.businessLogic = getattr(module, config["businessLogic"])()
+        if "businessLogic" in config:
+            module = importlib.import_module("BusinessLogic." + config["businessLogic"])
+            self.businessLogic = getattr(module, config["businessLogic"])()
+        else:
+            self.businessLogic=None
         self.confirmationPhrase = config["confirmationPhrase"] if "confirmationPhrase" in config else None
         self.openingQuestion = config["openingQuestion"]
         self.state = State.init

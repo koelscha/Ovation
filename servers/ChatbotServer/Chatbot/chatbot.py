@@ -25,5 +25,7 @@ class ChatBot:
             self.currentBusinessCase = None
         else:
             result = self.currentBusinessCase.processMessage(message, clientId, attachments)
+#            if self.currentBusinessCase.state is State.confirmed:
+#                result+="\n\nWhat else can I do for you?"
 
         return result

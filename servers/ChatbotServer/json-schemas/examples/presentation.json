@@ -29,6 +29,11 @@
           "question": "When will you move into your new home?"
          }
       ]
+    },
+    {
+      "name": "Welcome",
+      "intent": "greeting",
+      "openingQuestion": "Hello, hat can I do for you?"
     }
   ]
 }
