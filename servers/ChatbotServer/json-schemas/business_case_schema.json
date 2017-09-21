@@ -27,11 +27,17 @@
       "type": "string",
       "description": "The class name for that class that calculates results from entitites",
       "minLength": 1
+    },
+    "extractor": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Class-name that is executed to extract the entity from a given chat input"
     }
   },
   "required": [
     "name",
-    "intent"
+    "intent",
+    "extractor"
   ],
   "additionalProperties": false
 }
