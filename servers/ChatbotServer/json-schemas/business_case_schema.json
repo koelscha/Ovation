@@ -31,8 +31,7 @@
   },
   "required": [
     "name",
-    "intent",
-    "confirmationPhrase"
+    "intent"
   ],
   "additionalProperties": false
 }

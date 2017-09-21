@@ -1,8 +1,17 @@
 from BusinessLogic.BusinessLogic import BusinessLogic
 
 class InsuranceCalculator(BusinessLogic):
-    demoAnswer = "We can modify your household insurance according to the information you gave us beginning\
-                  from 1st of October 2017. The new annual fee is 56€ for a 104 square meter flat in Berlin."
-
     def processEntities(self, entities):
-        return InsuranceCalculator.demoAnswer
+        return ("We updated your address to {}, {} {}\n"
+        "For your household insurance the annual fee will be 56€ (previously 52€)"
+        "starting from {}.").format(self.getValueByName(entities, 'street'),
+                                  self.getValueByName(entities, 'zip'),
+                                  self.getValueByName(entities, 'city'),
+                                  self.getValueByName(entities, 'date'))
+
+    def getValueByName(self, entities, name):
+        for entity in entities:
+            if entity.name == name:
+                return entity.value
+        return "unknown entity: {}".format(name)
+
