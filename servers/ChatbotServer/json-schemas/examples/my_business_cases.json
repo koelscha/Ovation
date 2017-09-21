@@ -5,11 +5,11 @@
       "name": "Name detection",
       "intent": "contract",
       "confirmationPhrase": "Thank you and good bye!",
+      "extractor": "SpacyExtractor",
       "entities": [
         {
           "name": "name",
-          "question": "Can you please provide your name?",
-          "extractor": "SpacyExtractor"
+          "question": "Can you please provide your name?"
         }
       ],
       "businessLogic": "InsuranceCalculator",

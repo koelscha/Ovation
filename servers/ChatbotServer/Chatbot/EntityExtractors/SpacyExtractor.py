@@ -20,6 +20,7 @@ class SpacyExtractor(EntityExtractor):
 
     def extractFromImage(self, attachment, entities):
         extractedEntities = []
+        extractedEntities.append(Match("name", "Marc"))
         extractedEntities.append(Match("street", "Burggrafenstr.", 1))
         extractedEntities.append(Match("streetnumber", "61", 1))
         extractedEntities.append(Match("zipcode", "10787", 1))

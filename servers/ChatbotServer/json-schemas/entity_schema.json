@@ -11,17 +11,11 @@
     "question": {
       "type": "string",
       "minLength": 1
-    },
-    "extractor": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Class-name that is executed to extract the entity from a given chat input"
     }
   },
   "required": [
     "name",
-    "question",
-    "extractor"
+    "question"
   ],
   "additionalProperties": false
 }
