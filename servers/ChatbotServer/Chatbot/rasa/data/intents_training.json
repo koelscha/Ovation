@@ -1,0 +1,93 @@
+{
+  "rasa_nlu_data": {
+    "regex_features": [
+      {
+        "name": "zipcode",
+        "pattern": "[0-9]{5}"
+      }
+    ],
+    "entity_synonyms": [
+      {
+        "value": "insurance",
+        "synonyms": ["Insurance"]
+      }
+    ],
+    "common_examples": [
+      {
+        "text": "I want to know the insurance price change",
+        "intent": "contract",
+        "entities": []
+      },
+      {
+        "text": "I want to change my insurance contract",
+        "intent": "contract",
+        "entities": []
+      },
+      {
+        "text": "Health insurance",
+        "intent": "contract",
+        "entities": []
+      },
+      {
+        "text": "I want a new insurance",
+        "intent": "contract",
+        "entities": []
+      },
+      {
+        "text": "I will move soon.",
+        "intent": "contract",
+        "entities": []
+      },
+      {
+        "text": "I am going to move to another town.",
+        "intent": "contract",
+        "entities": []
+      },
+      {
+        "text": "hey",
+        "intent": "greeting",
+        "entities": []
+      },
+      {
+        "text": "howdy",
+        "intent": "greeting",
+        "entities": []
+      },
+      {
+        "text": "hey there",
+        "intent": "greeting",
+        "entities": []
+      },
+      {
+        "text": "hello",
+        "intent": "greeting",
+        "entities": []
+      },
+      {
+        "text": "hi",
+        "intent": "greeting",
+        "entities": []
+      },
+      {
+        "text": "good morning",
+        "intent": "greeting",
+        "entities": []
+      },
+      {
+        "text": "hello",
+        "intent": "greeting",
+        "entities": []
+      },
+      {
+        "text": "good evening",
+        "intent": "greeting",
+        "entities": []
+      },
+      {
+        "text": "dear sir",
+        "intent": "greeting",
+        "entities": []
+      }
+    ]
+  }
+}
