@@ -33,6 +33,11 @@
           "extractor": "MirrorExtractor"
          }
       ]
+    },
+    {
+      "name": "Welcome",
+      "intent": "greeting",
+      "openingQuestion": "Hello, hat can I do for you?"
     }
   ]
 }
