@@ -15,9 +15,8 @@ class ChatbotServer:
         self.api = Api(self.app)
         self.api.add_resource(MessageHandler, '/message')
 
-        self.serverAddress = "192.168.54.37:8080"
-        #self.serverAddress = "127.0.0.1:8080"
-        self.chatBotAddress = "192.168.54.32:5000"
+        self.serverAddress = "127.0.0.1:8080"
+        self.chatBotAddress = "127.0.0.1:5000"
 
         self.myMessageURL = {'url': urlparse.urlunparse(('http', self.chatBotAddress, '/message', '', '', ''))}
         self.smoopeRegisterURL = urlparse.urlunparse(('http', self.serverAddress, '/chatbot', '', '', ''))
