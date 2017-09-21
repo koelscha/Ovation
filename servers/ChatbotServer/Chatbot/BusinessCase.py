@@ -1,6 +1,7 @@
 import importlib
 from Entity import Entity
 from enum import Enum
+from collections import OrderedDict
 
 class State(Enum):
     init = 1
@@ -13,7 +14,9 @@ class BusinessCase:
         self.name = config["name"]
         self.intent = config["intent"]
         entities = [Entity(e) for e in config["entities"]] if "entities" in config else []
-        self.entities = {e.name: e for e in entities}
+        self.entities = OrderedDict()
+        for e in entities:
+            self.entities[e.name] = e
         if "businessLogic" in config:
             module = importlib.import_module("BusinessLogic." + config["businessLogic"])
             self.businessLogic = getattr(module, config["businessLogic"])()
