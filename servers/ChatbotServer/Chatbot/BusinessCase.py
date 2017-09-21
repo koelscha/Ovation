@@ -28,6 +28,7 @@ class BusinessCase:
             self.extractor = getattr(module, config["extractor"])()
 
     def processMessage(self, message, clientId, attachments):
+
         if self.state is State.init:
             if self.entities:
                 self.state = State.waitForAnswer
@@ -57,14 +58,14 @@ class BusinessCase:
         if attachments:
             for attachment in attachments:
                 emptyEntities = self.getEmptyEntities()
-                matches = self.extractor.extractFromImage(attachment, emptyEntities)
+                matches = self.extractor.extractFromImage(attachment, emptyEntities, self.currentEntity)
                 for match in matches:
                     self.entities[match.name].value = match.value
                     self.entities[match.name].confidence = match.confidence
 
         if message:
             emptyEntities = self.getEmptyEntities()
-            matches = self.extractor.extractFromText(message, emptyEntities)
+            matches = self.extractor.extractFromText(message, emptyEntities, self.currentEntity)
             for match in matches:
                 self.entities[match.name].value = match.value
                 self.entities[match.name].confidence = match.confidence

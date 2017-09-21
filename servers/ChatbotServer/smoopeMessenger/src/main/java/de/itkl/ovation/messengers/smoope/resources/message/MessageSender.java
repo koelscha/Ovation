@@ -33,7 +33,7 @@ public class MessageSender {
         if (chatBotMessage.getMessage() != null) {
             this.sendMessageToSmoope(chatBotMessage);
             String successMessage = "Successfully sent message with content '" + chatBotMessage.getMessage() + "' to the client '" + chatBotMessage.getClientId() +"'.";
-            Response.status(200).entity(successMessage).build();
+            return Response.status(200).entity(successMessage).build();
         }
         return Response.status(400).entity("Receved a null message, which can not be sent to the client '" +chatBotMessage.getClientId() + "'").build();
     }

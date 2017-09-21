@@ -1,8 +1,8 @@
 class EntityExtractor:
-    def extractFromText(self, message, entities):
+    def extractFromText(self, message, entities, currentEntity):
         pass
 
-    def extractFromImage(self, attachment, entities):
+    def extractFromImage(self, attachment, entities, currentEntity):
         extractedEntities = []
         extractedEntities.append(Match("name", "Marc"))
         extractedEntities.append(Match("street", "Burggrafenstr.", 1))
