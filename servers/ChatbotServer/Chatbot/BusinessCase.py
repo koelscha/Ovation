@@ -1,8 +1,11 @@
+from Entity import Entity
+
 class BusinessCase:
-    def __init__(self, entities=None, businessLogic=None, confirmationPhrase=""):
-        self.entities = entities
-        self.businessLogic = businessLogic
-        self.confirmationPhrase = confirmationPhrase
+    def __init__(self, config):
+        self.name = config["name"]
+        self.entities = [Entity(e) for e in config["entities"]]
+        self.businessLogic = config["businessLogic"]
+        self.confirmationPhrase = config["confirmationPhrase"]
 
     def getNextEmptyEntity(self):
         if not self.entities:

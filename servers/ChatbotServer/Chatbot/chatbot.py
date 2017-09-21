@@ -5,6 +5,9 @@ from BusinessCase import BusinessCase
 from BusinessLogic import InsuranceCalculator
 from Entity import Entity
 
+from Downloader import download
+import json
+
 
 class State(Enum):
     init = 1
@@ -12,12 +15,10 @@ class State(Enum):
 
 
 class ChatBot:
-    def __init__(self):
+    def __init__(self, filename):
+        self.config = json.load(filename)
         self.state = State.init
-        entities = [Entity("What is your name?", lambda message, attachments: message)]
-        self.businessCases = {"greeting": BusinessCase(confirmationPhrase="How can help you?"),
-                              "contract": BusinessCase(entities, InsuranceCalculator(),
-                                                       confirmationPhrase="Your name is {}.")}
+        self.businessCases = [BusinessCase(b) for b in self.config["businessCases"]]
         self.currentBusinessCase = None
         self.currentEntity = None
 
@@ -28,8 +29,7 @@ class ChatBot:
         if not self.currentBusinessCase:
             intent = IntentClassifier.classify(message)
             self.currentBusinessCase = self.businessCases[intent]
-
-        self.currentEntity = self.currentBusinessCase.getNextEmptyEntity()
+            self.currentEntity = self.currentBusinessCase.getNextEmptyEntity()
 
         if self.currentEntity:
             if self.state is State.init:

@@ -9,10 +9,10 @@
         {
           "name": "name",
           "question": "Can you please provide your name?",
-          "extractor": "Mirror.py"
+          "extractor": "SpacyExtractor"
         }
       ],
-      "businessLogic": "GreetBack.py"
+      "businessLogic": "GreetBack"
     }
   ]
 }

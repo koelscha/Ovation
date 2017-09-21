@@ -1,9 +1,9 @@
 import spacy
 
-import EntityExtractors.EntityExtractor
+from EntityExtractors.EntityExtractor import EntityExtractor
 
 
-class SpacyExtractor(EntityExtractors.EntityExtractor):
+class SpacyExtractor(EntityExtractor):
     nlp = spacy.load('en')
 
     def extractFromText(self, message, entityTypes=None):

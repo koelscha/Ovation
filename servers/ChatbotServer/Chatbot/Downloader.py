@@ -2,6 +2,7 @@ import urllib.request
 
 
 def download(attachment):
+    print(attachment)
     url, filename, mimetype = attachment["url"], attachment["fileName"], attachment["mimeType"]
     data = None
     try:
