@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Entity",
+  "description": "A schema for an entity for a business case of an ovation chat bot",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1
+    },
+    "extractor": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Class-name that is executed to extract the entity from a given chat input"
+    }
+  },
+  "required": [
+    "name",
+    "question",
+    "extractor"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Entities",
+  "description": "A schema for the entities of a business cases of an ovation chat bot",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "$ref": "entity_schema.json#/"
+  },
+  "uniqueItems": true
+}

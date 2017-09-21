@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "BusinessCase",
+  "description": "A schema for a business case of an ovation chat bot",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "intent": {
+      "type": "string",
+      "minLength": 1
+    },
+    "confirmationPhrase": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entities": {
+      "$ref": "entities_schema.json#/"
+    },
+    "businessLogic": {
+      "type": "string",
+      "description": "The class name for that class that calculates results from entitites",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "name",
+    "intent",
+    "confirmationPhrase"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,18 @@
+{
+  "api": "1.0.0-SNAPSHOT",
+  "businessCases": [
+    {
+      "name": "Name detection",
+      "intent": "Contract",
+      "confirmationPhrase": "Thank you and good bye!",
+      "entities": [
+        {
+          "name": "name",
+          "question": "Can you please provide your name?",
+          "extractor": "Mirror.py"
+        }
+      ],
+      "businessLogic": "GreetBack.py"
+    }
+  ]
+}

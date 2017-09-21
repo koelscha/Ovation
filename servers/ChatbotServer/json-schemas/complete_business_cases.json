@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "BusinessCases",
+  "description": "A schema for the business cases for the ovation chatbot",
+  "type": "object",
+  "properties": {
+    "api": {
+      "enum": [
+        "1.0.0-SNAPSHOT"
+      ],
+      "description": "The api version for the ovation chatbot business cases"
+    },
+    "businessCases": {
+      "$ref": "business_cases_schema.json#/"
+    }
+  },
+  "required": [
+    "api",
+    "businessCases"
+  ],
+  "additionalProperties": false
+}
