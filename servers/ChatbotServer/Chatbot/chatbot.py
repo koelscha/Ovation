@@ -2,8 +2,6 @@ from enum import Enum
 
 import IntentClassifier
 from BusinessCase import BusinessCase
-from BusinessLogic import InsuranceCalculator
-from Entity import Entity
 
 from Downloader import download
 import json
@@ -18,7 +16,8 @@ class ChatBot:
     def __init__(self, filename):
         self.config = json.load(filename)
         self.state = State.init
-        self.businessCases = [BusinessCase(b) for b in self.config["businessCases"]]
+        businessCases = [BusinessCase(b) for b in self.config["businessCases"]]
+        self.businessCases = {b.intent:b for b in businessCases}
         self.currentBusinessCase = None
         self.currentEntity = None
 
