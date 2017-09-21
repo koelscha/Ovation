@@ -16,7 +16,7 @@ class BusinessCase:
         self.entities = {e.name: e for e in entities}
         module = importlib.import_module("BusinessLogic." + config["businessLogic"])
         self.businessLogic = getattr(module, config["businessLogic"])()
-        self.confirmationPhrase = config["confirmationPhrase"]
+        self.confirmationPhrase = config["confirmationPhrase"] if "confirmationPhrase" in config else None
         self.openingQuestion = config["openingQuestion"]
         self.state = State.init
         self.currentEntity = None
@@ -30,7 +30,10 @@ class BusinessCase:
             self.currentEntity = self.getNextEmptyEntity()
 
             if not self.currentEntity:
-                self.state = State.waitForConfirm
+                if not self.confirmationPhrase:
+                    self.state=State.confirmed
+                else:
+                    self.state = State.waitForConfirm
                 return self.businessLogic.processEntities(self.entities)
             else:
                 self.state = State.waitForAnswer

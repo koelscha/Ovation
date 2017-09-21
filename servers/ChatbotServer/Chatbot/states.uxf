@@ -4,8 +4,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>221</x>
-      <y>416</y>
+      <x>364</x>
+      <y>169</y>
       <w>156</w>
       <h>52</h>
     </coordinates>
@@ -16,8 +16,8 @@ Init</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>637</x>
-      <y>130</y>
+      <x>806</x>
+      <y>169</y>
       <w>156</w>
       <h>52</h>
     </coordinates>
@@ -28,20 +28,20 @@ WaitForAnswer</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>286</x>
-      <y>247</y>
-      <w>91</w>
-      <h>195</h>
+      <x>507</x>
+      <y>169</y>
+      <w>78</w>
+      <h>52</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 </panel_attributes>
-    <additional_attributes>50.0;10.0;10.0;130.0</additional_attributes>
+    <additional_attributes>40.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>598</x>
-      <y>416</y>
+      <x>767</x>
+      <y>455</y>
       <w>169</w>
       <h>39</h>
     </coordinates>
@@ -52,8 +52,8 @@ WaitForAnswer</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>559</x>
-      <y>169</y>
+      <x>728</x>
+      <y>208</y>
       <w>182</w>
       <h>130</h>
     </coordinates>
@@ -64,8 +64,8 @@ messageReceived</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>728</x>
-      <y>273</y>
+      <x>897</x>
+      <y>312</y>
       <w>130</w>
       <h>39</h>
     </coordinates>
@@ -75,8 +75,8 @@ messageReceived</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>702</x>
-      <y>299</y>
+      <x>871</x>
+      <y>338</y>
       <w>117</w>
       <h>143</h>
     </coordinates>
@@ -87,8 +87,8 @@ messageReceived</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>702</x>
-      <y>169</y>
+      <x>871</x>
+      <y>208</y>
       <w>195</w>
       <h>130</h>
     </coordinates>
@@ -99,8 +99,8 @@ imageReceived</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>494</x>
-      <y>273</y>
+      <x>663</x>
+      <y>312</y>
       <w>182</w>
       <h>39</h>
     </coordinates>
@@ -110,8 +110,8 @@ imageReceived</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>559</x>
-      <y>299</y>
+      <x>728</x>
+      <y>338</y>
       <w>143</w>
       <h>143</h>
     </coordinates>
@@ -121,8 +121,8 @@ imageReceived</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>754</x>
-      <y>286</y>
+      <x>923</x>
+      <y>325</y>
       <w>286</w>
       <h>182</h>
     </coordinates>
@@ -133,8 +133,8 @@ emptyEntities</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>598</x>
-      <y>546</y>
+      <x>767</x>
+      <y>585</y>
       <w>169</w>
       <h>65</h>
     </coordinates>
@@ -143,22 +143,10 @@ and send result</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>208</x>
-      <y>13</y>
-      <w>962</w>
-      <h>780</h>
-    </coordinates>
-    <panel_attributes>Business Case
-bg=yellow</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1014</x>
-      <y>273</y>
+      <x>1183</x>
+      <y>312</y>
       <w>130</w>
       <h>39</h>
     </coordinates>
@@ -169,8 +157,8 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>780</x>
-      <y>143</y>
+      <x>949</x>
+      <y>182</y>
       <w>325</w>
       <h>156</h>
     </coordinates>
@@ -181,9 +169,9 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>676</x>
-      <y>442</y>
-      <w>182</w>
+      <x>845</x>
+      <y>481</y>
+      <w>169</w>
       <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
@@ -193,8 +181,8 @@ NoEmptyEntities</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>468</x>
-      <y>663</y>
+      <x>546</x>
+      <y>702</y>
       <w>156</w>
       <h>52</h>
     </coordinates>
@@ -206,20 +194,20 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>598</x>
-      <y>598</y>
-      <w>104</w>
+      <x>663</x>
+      <y>637</y>
+      <w>221</w>
       <h>104</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-</panel_attributes>
-    <additional_attributes>10.0;60.0;60.0;10.0</additional_attributes>
+confirmationPhrase exists</panel_attributes>
+    <additional_attributes>20.0;60.0;140.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>676</x>
-      <y>676</y>
+      <x>754</x>
+      <y>715</y>
       <w>247</w>
       <h>39</h>
     </coordinates>
@@ -230,8 +218,8 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>611</x>
-      <y>676</y>
+      <x>689</x>
+      <y>715</y>
       <w>91</w>
       <h>39</h>
     </coordinates>
@@ -241,32 +229,32 @@ layer=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>286</x>
-      <y>221</y>
+      <x>559</x>
+      <y>182</y>
       <w>182</w>
       <h>39</h>
     </coordinates>
-    <panel_attributes>ask generic question
+    <panel_attributes>ask opening question
 layer=1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>377</x>
-      <y>143</y>
-      <w>286</w>
-      <h>104</h>
+      <x>728</x>
+      <y>169</y>
+      <w>104</w>
+      <h>52</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 </panel_attributes>
-    <additional_attributes>200.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>60.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>975</x>
-      <y>663</y>
+      <x>1053</x>
+      <y>702</y>
       <w>156</w>
       <h>52</h>
     </coordinates>
@@ -278,12 +266,24 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>910</x>
-      <y>676</y>
+      <x>988</x>
+      <y>715</y>
       <w>91</w>
       <h>39</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>884</x>
+      <y>637</y>
+      <w>208</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+no confirmationPhrase</panel_attributes>
+    <additional_attributes>140.0;60.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
