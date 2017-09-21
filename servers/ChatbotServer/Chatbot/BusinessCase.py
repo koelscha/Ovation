@@ -20,6 +20,8 @@ class BusinessCase:
         self.openingQuestion = config["openingQuestion"]
         self.state = State.init
         self.currentEntity = None
+        module = importlib.import_module("EntityExtractors." + config["extractor"])
+        self.extractor = getattr(module, config["extractor"])()
 
     def processMessage(self, message, clientId, attachments):
         if self.state is State.init:
@@ -34,7 +36,7 @@ class BusinessCase:
                     self.state=State.confirmed
                 else:
                     self.state = State.waitForConfirm
-                return self.businessLogic.processEntities(self.entities)
+                return self.businessLogic.processEntities(self.entities.values())
             else:
                 self.state = State.waitForAnswer
                 return self.currentEntity.question
@@ -48,14 +50,14 @@ class BusinessCase:
         if attachments:
             for attachment in attachments:
                 emptyEntities = self.getEmptyEntities()
-                matches = self.currentEntity.extractFromImage(attachment, emptyEntities)
+                matches = self.extractor.extractFromImage(attachment, emptyEntities)
                 for match in matches:
                     self.entities[match.name].value = match.value
                     self.entities[match.name].confidence = match.confidence
 
         if message:
             emptyEntities = self.getEmptyEntities()
-            matches = self.currentEntity.extractFromText(message, emptyEntities)
+            matches = self.extractor.extractFromText(message, emptyEntities)
             for match in matches:
                 self.entities[match.name].value = match.value
                 self.entities[match.name].confidence = match.confidence
@@ -64,7 +66,7 @@ class BusinessCase:
     def getNextEmptyEntity(self):
         if not self.entities:
             return None
-        for entity in self.entities:
+        for entity in self.entities.values():
             if not entity.value:
                 return entity
         return None
@@ -73,7 +75,7 @@ class BusinessCase:
         if not self.entities:
             return None
         entities = []
-        for entity in self.entities:
+        for entity in self.entities.values():
             if not entity.value:
                 entities.append(entity.name)
         return entities

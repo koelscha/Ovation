@@ -1,243 +1,194 @@
 {
   "rasa_nlu_data": {
-
-    "entity_synonyms": [
-      {
-        "value": "insurance",
-        "synonyms": ["Insurance"]
-      }
-    ],
     "common_examples": [
       {
+        "intent": "lost",
         "text": "lost",
-        "intent": "lost",
         "entities": []
       },
       {
+        "intent": "lost",
         "text": "loss",
-        "intent": "lost",
         "entities": []
       },
       {
+        "intent": "lost",
         "text": "I lost my insurance card",
-        "intent": "lost",
         "entities": []
       },
       {
+        "intent": "lost",
         "text": "I dropped my insurance card",
-        "intent": "lost",
         "entities": []
       },
       {
+        "intent": "lost",
         "text": "dropped",
-        "intent": "lost",
         "entities": []
       },
       {
+        "intent": "lost",
         "text": "I can't find my insurance card",
-        "intent": "lost",
         "entities": []
       },
-            {
+      {
+        "intent": "lost",
         "text": "I lost my insurance card. What should I do?",
-        "intent": "lost",
         "entities": []
       },
       {
+        "intent": "lost",
         "text": "I dropped my insurance card. What I have to do?",
-        "intent": "lost",
         "entities": []
       },
       {
+        "intent": "lost",
         "text": "I have dropped my insurance card",
-        "intent": "lost",
         "entities": []
       },
       {
+        "intent": "lost",
         "text": "I can't find my insurance card. To whom should I call?",
-        "intent": "lost",
         "entities": []
       },
       {
+        "intent": "contract",
         "text": "I want to know the insurance price change",
-        "intent": "contract",
         "entities": []
       },
       {
+        "intent": "contract",
         "text": "I want to change my insurance contract",
-        "intent": "contract",
         "entities": []
       },
       {
+        "intent": "contract",
         "text": "insurance contract",
-        "intent": "contract",
         "entities": []
       },
-
       {
+        "intent": "contract",
         "text": "I want to change my insurance contract",
-        "intent": "contract",
         "entities": []
       },
       {
-        "text": "Can adress? my change I",
         "intent": "contract",
-        "entities": []
-      },
-      {
-        "text": "change I Can adress? my",
-        "intent": "contract",
-        "entities": []
-      },
-      {
-        "text": "change Can my adress? I",
-        "intent": "contract",
-        "entities": []
-      },
-      {
-        "text": "I change Can my adress?",
-        "intent": "contract",
-        "entities": []
-      },
-      {
-        "text": "I change Can my adress?",
-        "intent": "contract",
-        "entities": []
-      },
-      {
-        "text": "I Can change my adress?",
-        "intent": "contract",
-        "entities": []
-      },
-      {
-        "text": "my adress? I Can change",
-        "intent": "contract",
-        "entities": []
-      },
-      {
-        "text": "Can I my adress? change",
-        "intent": "contract",
-        "entities": []
-      },
-      {
-        "text": "change adress? I my Can",
-        "intent": "contract",
-        "entities": []
-      },
-      {
-        "text": "I my Can adress? change",
-        "intent": "contract",
-        "entities": []
-      },
-      {
         "text": "Health insurance",
-        "intent": "contract",
         "entities": []
       },
       {
+        "intent": "contract",
         "text": "I want a new insurance",
-        "intent": "contract",
         "entities": []
       },
       {
+        "intent": "contract",
         "text": "I will move soon.",
-        "intent": "contract",
         "entities": []
       },
       {
+        "intent": "contract",
         "text": "move",
-        "intent": "contract",
         "entities": []
       },
       {
+        "intent": "contract",
         "text": "I've moved",
-        "intent": "contract",
         "entities": []
       },
       {
+        "intent": "contract",
         "text": "moved",
-        "intent": "contract",
         "entities": []
       },
       {
+        "intent": "contract",
         "text": "I will move soon.",
-        "intent": "contract",
         "entities": []
       },
       {
+        "intent": "contract",
         "text": "I've moved to kaiserslautern.",
-        "intent": "contract",
         "entities": []
       },
       {
+        "intent": "contract",
         "text": "I am going to move to another town.",
-        "intent": "contract",
         "entities": []
       },
       {
-        "text": "hey",
         "intent": "greeting",
+        "text": "hey",
         "entities": []
       },
       {
+        "intent": "greeting",
         "text": "hey my name is Max Mustermann",
-        "intent": "greeting",
         "entities": []
       },
       {
+        "intent": "greeting",
         "text": "yo",
-        "intent": "greeting",
         "entities": []
       },
       {
+        "intent": "greeting",
         "text": "What's up",
-        "intent": "greeting",
         "entities": []
       },
       {
+        "intent": "greeting",
         "text": "my name is",
-        "intent": "greeting",
         "entities": []
       },
       {
+        "intent": "greeting",
         "text": "hey",
-        "intent": "greeting",
         "entities": []
       },
       {
+        "intent": "greeting",
         "text": "howdy",
-        "intent": "greeting",
         "entities": []
       },
       {
+        "intent": "greeting",
         "text": "hello",
-        "intent": "greeting",
         "entities": []
       },
       {
+        "intent": "greeting",
         "text": "hi",
-        "intent": "greeting",
         "entities": []
       },
       {
+        "intent": "greeting",
         "text": "good morning",
-        "intent": "greeting",
         "entities": []
       },
       {
+        "intent": "greeting",
         "text": "hello",
-        "intent": "greeting",
         "entities": []
       },
       {
+        "intent": "greeting",
         "text": "good evening",
-        "intent": "greeting",
         "entities": []
       },
       {
-        "text": "dear sir",
         "intent": "greeting",
+        "text": "dear sir",
         "entities": []
+      }
+    ],
+    "regex_features": [],
+    "entity_synonyms": [
+      {
+        "synonyms": [
+          "Insurance"
+        ],
+        "value": "insurance"
       }
     ]
   }

@@ -6,5 +6,3 @@ class Entity:
         self.question = config["question"]
         self.value = None
         self.confidence = None
-        module = importlib.import_module("EntityExtractors." + config["extractor"])
-        self.extractor = getattr(module, config["extractor"])()

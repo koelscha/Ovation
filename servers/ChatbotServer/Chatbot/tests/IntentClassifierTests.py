@@ -5,9 +5,7 @@ from IntentClassifiers.RasaClassifier import RasaClassifier
 
 class IntentClassifierTests(unittest.TestCase):
     def setUp(self):
-        rasa_model = '../rasa/models/model_20170921-221417'
-        rasa_config = "../rasa/config_spacy.json"
-        self.rasa_classifier = RasaClassifier(rasa_model, rasa_config)
+        self.rasa_classifier = RasaClassifier()
 
     def test_greeting_recognition(self):
         test_messages = {"greeting": ["Hi there.",
@@ -15,7 +13,10 @@ class IntentClassifierTests(unittest.TestCase):
                                       "Hello my name is Max Mustermann."],
                          "contract": ["I want to move.",
                                       "Can you change my address?",
-                                      "I want to change my address."]
+                                      "I want to change my address."],
+                         "lost": ["I lost my card.",
+                                  "Please lock my health insurance card.",
+                                  "My card was lost. Please lock it."]
                          }
 
         for intent, messages in test_messages.items():
