@@ -1,11 +1,6 @@
 {
   "rasa_nlu_data": {
-    "regex_features": [
-      {
-        "name": "zipcode",
-        "pattern": "[0-9]{5}"
-      }
-    ],
+
     "entity_synonyms": [
       {
         "value": "insurance",
@@ -14,10 +9,71 @@
     ],
     "common_examples": [
       {
+        "text": "lost",
+        "intent": "lost",
+        "entities": []
+      },
+      {
+        "text": "loss",
+        "intent": "lost",
+        "entities": []
+      },
+      {
+        "text": "I lost my insurance card",
+        "intent": "lost",
+        "entities": []
+      },
+      {
+        "text": "I dropped my insurance card",
+        "intent": "lost",
+        "entities": []
+      },
+      {
+        "text": "dropped",
+        "intent": "lost",
+        "entities": []
+      },
+      {
+        "text": "I can't find my insurance card",
+        "intent": "lost",
+        "entities": []
+      },
+            {
+        "text": "I lost my insurance card. What should I do?",
+        "intent": "lost",
+        "entities": []
+      },
+      {
+        "text": "I dropped my insurance card. What I have to do?",
+        "intent": "lost",
+        "entities": []
+      },
+      {
+        "text": "I have dropped my insurance card",
+        "intent": "lost",
+        "entities": []
+      },
+      {
+        "text": "I can't find my insurance card. To whom should I call?",
+        "intent": "lost",
+        "entities": []
+      },
+      {
         "text": "I want to know the insurance price change",
         "intent": "contract",
         "entities": []
       },
+      {
+        "text": "I want to change my insurance contract",
+        "intent": "contract",
+        "entities": []
+      },
+      {
+        "text": "insurance contract",
+        "intent": "contract",
+        "entities": []
+      },
+
       {
         "text": "I want to change my insurance contract",
         "intent": "contract",
@@ -39,6 +95,31 @@
         "entities": []
       },
       {
+        "text": "move",
+        "intent": "contract",
+        "entities": []
+      },
+      {
+        "text": "I've moved",
+        "intent": "contract",
+        "entities": []
+      },
+      {
+        "text": "moved",
+        "intent": "contract",
+        "entities": []
+      },
+      {
+        "text": "I will move soon.",
+        "intent": "contract",
+        "entities": []
+      },
+      {
+        "text": "I've moved to kaiserslautern.",
+        "intent": "contract",
+        "entities": []
+      },
+      {
         "text": "I am going to move to another town.",
         "intent": "contract",
         "entities": []
@@ -49,12 +130,32 @@
         "entities": []
       },
       {
-        "text": "howdy",
+        "text": "hey my name is Max Mustermann",
         "intent": "greeting",
         "entities": []
       },
       {
-        "text": "hey there",
+        "text": "yo",
+        "intent": "greeting",
+        "entities": []
+      },
+      {
+        "text": "What's up",
+        "intent": "greeting",
+        "entities": []
+      },
+      {
+        "text": "my name is",
+        "intent": "greeting",
+        "entities": []
+      },
+      {
+        "text": "hey",
+        "intent": "greeting",
+        "entities": []
+      },
+      {
+        "text": "howdy",
         "intent": "greeting",
         "entities": []
       },
