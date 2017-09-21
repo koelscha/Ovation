@@ -12,7 +12,8 @@
           "extractor": "SpacyExtractor"
         }
       ],
-      "businessLogic": "InsuranceCalculator"
+      "businessLogic": "InsuranceCalculator",
+      "openingQuestion": "I want to know your name."
     }
   ]
 }

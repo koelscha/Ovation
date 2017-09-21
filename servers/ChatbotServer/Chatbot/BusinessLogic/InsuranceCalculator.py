@@ -6,3 +6,8 @@ class InsuranceCalculator(BusinessLogic):
 
     def processEntities(self, entities):
         return InsuranceCalculator.demoAnswer
+
+
+class EntityResponder(BusinessLogic):
+    def processEntities(self, entities):
+        return ",".join([entity.value for entity in entities])

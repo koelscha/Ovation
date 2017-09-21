@@ -16,6 +16,10 @@
       "type": "string",
       "minLength": 1
     },
+    "openingQuestion": {
+      "type": "string",
+      "minLength": 1
+    },
     "entities": {
       "$ref": "entities_schema.json#/"
     },
