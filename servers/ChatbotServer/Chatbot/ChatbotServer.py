@@ -9,19 +9,18 @@ from chatbot import ChatBot
 
 class ChatbotServer:
     chatbot = ChatBot()
+    serverAddress = "127.0.0.1:8080"
+    smoopeMessageURL = urlparse.urlunparse(('http', serverAddress, '/message', '', '', ''))
 
     def __init__(self):
         self.app = Flask(__name__)
         self.api = Api(self.app)
         self.api.add_resource(MessageHandler, '/message')
 
-        self.serverAddress = "192.168.54.37:8080"
-        #self.serverAddress = "127.0.0.1:8080"
-        self.chatBotAddress = "192.168.54.32:5000"
+        self.chatBotAddress = "127.0.0.1:5000"
 
         self.myMessageURL = {'url': urlparse.urlunparse(('http', self.chatBotAddress, '/message', '', '', ''))}
         self.smoopeRegisterURL = urlparse.urlunparse(('http', self.serverAddress, '/chatbot', '', '', ''))
-        self.smoopeMessageURL = urlparse.urlunparse(('http', self.serverAddress, '/message', '', '', ''))
 
 
     def register(self):
@@ -35,7 +34,7 @@ class ChatbotServer:
 
 
     def start(self):
-        #self.register()
+        self.register()
         self.app.run(host='0.0.0.0')
 
 
@@ -48,14 +47,17 @@ class MessageHandler(Resource):
         answer = ChatbotServer.chatbot.processMessage(message, clientId)
         self.sendMessage(clientId, answer)
 
-    def sendMessage(selfs, clientId, message):
+    def sendMessage(self, clientId, message):
+        http = requests.Session()
+        headers = {'content-type': 'application/json'}
         data = {'clientId': clientId, 'message': message}
         print("Message sent: " + json.dumps(data))
-        # r = http.post(serverMessage, data=json.dumps(data), headers=headers)
-        # try:
-        #    r.raise_for_status()
-        # except requests.exceptions.HTTPError:
-        #    print('Request failed with http status ' + str(r.status_code))
+
+        response = http.post(ChatbotServer.smoopeMessageURL, data=json.dumps(data), headers=headers)
+        try:
+           response.raise_for_status()
+        except requests.exceptions.HTTPError:
+           print('Request failed with http status ' + str(response.status_code))
 
 
 if __name__ == '__main__':
