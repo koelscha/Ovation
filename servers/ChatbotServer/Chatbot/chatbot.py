@@ -2,7 +2,6 @@ import json
 
 from BusinessCase import BusinessCase, State
 from IntentClassifiers.RasaClassifier import RasaClassifier
-from IntentClassifiers.SimpleClassifier import SimpleClassifier
 
 
 class ChatBot:
@@ -18,7 +17,7 @@ class ChatBot:
         result = None
 
         if not self.currentBusinessCase:
-            intent = SimpleClassifier().classify(message)
+            intent = self.intentClassifier.classify(message)
             self.currentBusinessCase = self.businessCases[intent]
 
         if self.currentBusinessCase.state is State.confirmed:
