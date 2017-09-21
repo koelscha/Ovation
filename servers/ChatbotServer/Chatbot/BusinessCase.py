@@ -27,7 +27,7 @@ class BusinessCase:
             module = importlib.import_module("EntityExtractors." + config["extractor"])
             self.extractor = getattr(module, config["extractor"])()
         else:
-            self.businessLogic = None
+            self.extractor = None
 
     def processMessage(self, message, clientId, attachments):
         if self.state is State.init:
