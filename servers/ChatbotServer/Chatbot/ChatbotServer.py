@@ -3,6 +3,7 @@ from flask_restful import Resource, Api
 import requests
 import urllib.parse as urlparse
 import json
+import threading
 
 from chatbot import ChatBot
 
@@ -43,10 +44,10 @@ class ChatbotServer:
 class MessageHandler(Resource):
     def post(self):
         message, clientId, attachments = request.get_json()["message"], request.get_json()["clientId"], request.get_json()["attachments"]
-        self.onMessageReceived(message, clientId, attachments)
+        threading.Thread(target=self.onMessageReceived(message, clientId, attachments)).start()
 
     def onMessageReceived(self, message, clientId, attachments):
-        answer = ChatbotServer.chatbot.processMessage(message, clientId)
+        answer = ChatbotServer.chatbot.processMessage(message, clientId, attachments)
         self.sendMessage(clientId, answer)
 
     def sendMessage(self, clientId, message):

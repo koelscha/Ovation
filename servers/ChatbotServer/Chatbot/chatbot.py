@@ -14,7 +14,7 @@ class State(Enum):
 class ChatBot:
     def __init__(self):
         self.state = State.init
-        entities = [Entity("What is your name?", lambda message: message)]
+        entities = [Entity("What is your name?", lambda message, attachments: message)]
         self.businessCases = {"greeting": BusinessCase(confirmationPhrase="How can help you?"),
                               "contract": BusinessCase(entities, InsuranceCalculator(),
                                                        confirmationPhrase="Your name is {}.")}
@@ -22,7 +22,7 @@ class ChatBot:
         self.currentEntity = None
 
 
-    def processMessage(self, message, clientId):
+    def processMessage(self, message, clientId, attachments):
         result = None
 
         if not self.currentBusinessCase:
@@ -36,7 +36,7 @@ class ChatBot:
               result = self.currentEntity.question
               self.state =  State.waitingForAnswer
             else:
-                self.currentEntity.value = self.currentEntity.extract(message)
+                self.currentEntity.value = self.currentEntity.extract(message, attachments)
                 self.currentEntity = self.currentBusinessCase.getNextEmptyEntity()
                 if self.currentEntity:
                     result = self.currentEntity.question
@@ -47,3 +47,4 @@ class ChatBot:
             self.currentBusinessCase = None
 
         return result
+
