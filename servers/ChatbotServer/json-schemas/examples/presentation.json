@@ -61,12 +61,12 @@
       "name": "Bicycle Included",
       "intent": "bike",
       "openingQuestion": "I will check that for you. Can you tell me the cost of your bycicle or send a photo of the invoice",
-      "businessLogic": "CalculateBicycle",
+      "businessLogic": "BikeCalculator",
       "extractor": "MirrorExtractor",
       "entities": [
         {
           "name": "price",
-          "question": "What was price of your bicycle?"
+          "question": "What was the price of your bicycle?"
         }
       ]
     }
