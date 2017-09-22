@@ -16,7 +16,7 @@ args = parser.parse_args()
 class ChatbotServer:
     chatbot = ChatBot(args.json)
     serverAddress = "127.0.0.1:8080"
-    serverAddress = "192.168.54.37:8080"
+    #serverAddress = "192.168.54.37:8080"
     smoopeMessageURL = urlparse.urlunparse(('http', serverAddress, '/message', '', '', ''))
 
     def __init__(self):
@@ -25,7 +25,7 @@ class ChatbotServer:
         self.api.add_resource(MessageHandler, '/message')
 
         self.chatBotAddress = "127.0.0.1:5000"
-        self.chatBotAddress = "192.168.54.26:5000"
+        #self.chatBotAddress = "192.168.54.26:5000"
 
         self.myMessageURL = {'url': urlparse.urlunparse(('http', self.chatBotAddress, '/message', '', '', ''))}
         self.smoopeRegisterURL = urlparse.urlunparse(('http', self.serverAddress, '/chatbot', '', '', ''))
@@ -37,6 +37,7 @@ class ChatbotServer:
         response = http.post(self.smoopeRegisterURL, data=json.dumps(self.myMessageURL), headers=headers)
         try:
             response.raise_for_status()
+            print('Sucessfully registered as chatbot to ' + self.smoopeRegisterURL)
         except requests.exceptions.HTTPError:
             print('Request failed with http status ' + str(response.status_code))
 
@@ -44,6 +45,8 @@ class ChatbotServer:
     def start(self):
         self.register()
         self.app.run(host='0.0.0.0')
+
+
 
 
 class MessageHandler(Resource):
