@@ -19,7 +19,7 @@ class EntityExtractor:
     def postExtract(self, extractedEntities, emptyEntities):
         if "zip" in extractedEntities:
             if "city" not in extractedEntities or "country" not in extractedEntities:
-                city, country = self.address_getter(extractedEntities["zip"])
+                city, country = self.address_getter(extractedEntities["zip"].value)
                 if "city" not in extractedEntities and city:
                     extractedEntities["city"] = city
                 if "country" not in extractedEntities and country:
