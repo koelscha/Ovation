@@ -43,8 +43,9 @@ class ChatbotServer:
 
 
     def start(self):
-        self.app.run(host='0.0.0.0')
         self.register()
+        self.app.run(host='0.0.0.0')
+
 
 
 
