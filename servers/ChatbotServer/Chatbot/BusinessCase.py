@@ -62,6 +62,13 @@ class BusinessCase:
         if attachments:
             for attachment in attachments:
                 emptyEntities = self.getEmptyEntities()
+                if self.currentEntity and self.currentEntity.extractor:
+                    matchesForEntityExtractor = self.currentEntity.extractor.extractFromImage(attachment, emptyEntities, self.currentEntity)
+                    for match in matchesForEntityExtractor:
+                        self.entities[match.name].value = match.value
+                        self.entities[match.name].confidence = match.confidence
+                    emptyEntities = self.getEmptyEntities()
+
                 matches = self.extractor.extractFromImage(attachment, emptyEntities, self.currentEntity)
                 for match in matches:
                     self.entities[match.name].value = match.value
@@ -69,7 +76,15 @@ class BusinessCase:
 
         if message:
             emptyEntities = self.getEmptyEntities()
+            if self.currentEntity and self.currentEntity.extractor:
+                matchesForEntityExtractor = self.currentEntity.extractor.extractFromText(message, emptyEntities,
+                                                                                          self.currentEntity)
+                for match in matchesForEntityExtractor:
+                    self.entities[match.name].value = match.value
+                    self.entities[match.name].confidence = match.confidence
+                emptyEntities = self.getEmptyEntities()
             matches = self.extractor.extractFromText(message, emptyEntities, self.currentEntity)
+
             for match in matches:
                 self.entities[match.name].value = match.value
                 self.entities[match.name].confidence = match.confidence
