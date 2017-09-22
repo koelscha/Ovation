@@ -51,6 +51,19 @@
           "question": "What is your birthdate?"
         }
       ]
+    },
+    {
+      "name": "Bicycle Included",
+      "intent": "bike",
+      "openingQuestion": "I will check that for you. Can you tell me the cost of your bycicle or send a photo of the invoice",
+      "businessLogic": "CalculateBicycle",
+      "extractor": "MirrorExtractor",
+      "entities": [
+        {
+          "name": "price",
+          "question": "What was price of your bicycle?"
+        }
+      ]
     }
   ]
 }
