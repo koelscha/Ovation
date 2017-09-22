@@ -15,8 +15,7 @@ class PresentationTest(unittest.TestCase):
                                         "1").find("When you move we need your new address") >= 0)
         self.assertEqual(self.chatbot.processMessage("01.10.2017", "1"), "What is the new street name and number?")
         self.assertEqual(self.chatbot.processMessage("Saarbrückerstraße 36", "1"), "What is the new zip code?")
-        self.assertEqual(self.chatbot.processMessage("10787", "1"), "In which city will you live?")
-        self.assertEqual(self.chatbot.processMessage("Berlin", "1"), "How large is the new home in square meters?")
+        self.assertEqual(self.chatbot.processMessage("10787", "1"), "How large is the new home in square meters?")
         self.assertEqual(self.chatbot.processMessage("104", "1"), "When will you move into your new home?")
         result = self.chatbot.processMessage("1st of October", "1")
         self.assertTrue(result.find("Saarbrückerstraße 36")>=0)
@@ -38,7 +37,9 @@ class PresentationTest(unittest.TestCase):
         self.chatbot = ChatBot(fileName)
         self.assertEqual(self.chatbot.processMessage("Hello", "1"), "Hello, what can I do for you?")
         self.assertTrue(self.chatbot.processMessage("Contract", "1").find("When you move we need your new address") >= 0)
-        self.assertEqual(self.chatbot.processMessage("My new flat is located in Saarbrücker Str. 36, 10787 Berlin and has 64 sqm", "1"), "What is the new zip code?")
+        self.assertEqual(self.chatbot.processMessage(
+            "My new flat is located in Saarbrücker Straße 36, 10787 Berlin and has 64 square meters.", "1"),
+                         "When will you move into your new home?")
 
 if __name__ == '__main__':
     unittest.main()

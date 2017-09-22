@@ -29,10 +29,11 @@ Last tested for: spaCy 1.9.0
 """
 from __future__ import unicode_literals, print_function
 
-import io
 import spacy
-import GetNames
+
 import AddressTokens
+import GetNames
+
 
 def nerRec(model, ent_TAG, test_sent):
     nlp = spacy.load('en', path=model)
@@ -46,14 +47,16 @@ def nerRec(model, ent_TAG, test_sent):
         #print(type(doc))
     #print(type(doc.ents))
     area=GetNames.detectEntities(test_sent)
-    print(area)
+    date = GetNames.detectDate(test_sent)
+    print("Area: ", area)
+    print("Date: ", date)
     
     zipCode,StreetNum,StreetName=AddressTokens.findAddressTokens(address)
     print(zipCode)
     print(StreetNum)
     print(StreetName)
 
-    tup = ("Area",area,"StreetName",StreetName,"StreetNum",StreetNum,"ZipCode",zipCode)
+    tup = ("Area", area, "StreetName", StreetName, "StreetNum", StreetNum, "ZipCode", zipCode, "Date", date)
     print('$$$$$$$$')
     print(tup)
     return tup
