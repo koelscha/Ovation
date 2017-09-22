@@ -21,9 +21,9 @@ class EntityExtractor:
             if "city" not in extractedEntities or "country" not in extractedEntities:
                 city, country = self.address_getter(extractedEntities["zip"].value)
                 if "city" not in extractedEntities and city:
-                    extractedEntities["city"] = city
+                    extractedEntities["city"] = Match("city", city)
                 if "country" not in extractedEntities and country:
-                    extractedEntities["country"] = country
+                    extractedEntities["country"] = Match("country", country)
         return [match for match in extractedEntities.values() if match.name in emptyEntities]
 
     def address_getter(self, zip_code):
