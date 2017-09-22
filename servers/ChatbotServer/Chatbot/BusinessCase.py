@@ -33,7 +33,6 @@ class BusinessCase:
             self.extractor = None
 
     def processMessage(self, message, clientId, attachments):
-
         if self.state is State.init:
             if self.extractor:
                 self.state = State.waitForAnswer
