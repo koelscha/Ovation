@@ -29,7 +29,7 @@ class ChatBot:
         return result
 
     def getCurrentBusinessCase(self, clientId):
-        return self.clientSessions[clientId]
+        return self.clientSessions[clientId] if clientId in self.clientSessions else None
 
     def setCurrentBusinessCase(self, clientId, intent):
         with open(self.config_file_name) as f:
