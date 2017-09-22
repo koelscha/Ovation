@@ -26,6 +26,7 @@ curl -X POST localhost:8080/chatbot --data "{\"url\": \"localhost:5000\"}" -H "C
 ### GET
 * Returns all registered chatbots as json
 
+
 ```bash
 curl -X GET localhost:8080/chatbot
 ```

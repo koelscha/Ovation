@@ -10,6 +10,8 @@ class ChatBot:
         self.clientSessions = {}
         self.config_file_name = file_name
         self.intentClassifier = RasaClassifier()
+#        self.intentClassifier = SimpleClassifier()
+
 
     def processMessage(self, message, clientId, attachments=None):
         result = None

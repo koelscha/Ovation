@@ -1,3 +1,6 @@
+
+from IntentClassifiers import IntentClassifier
+
 from rasa_nlu.config import RasaNLUConfig
 from rasa_nlu.model import Interpreter
 

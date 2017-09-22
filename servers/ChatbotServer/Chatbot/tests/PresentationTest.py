@@ -33,5 +33,12 @@ class PresentationTest(unittest.TestCase):
         self.assertEqual(self.chatbot.processMessage("1234", "1"), "What is your birthdate?")
         self.assertTrue(self.chatbot.processMessage("01.02.2001", "1").find("1234") >= 0)
 
+    def test_entity_recognizer(self):
+        fileName = "../../json-schemas/examples/entity_recognizer_test.json"
+        self.chatbot = ChatBot(fileName)
+        self.assertEqual(self.chatbot.processMessage("Hello", "1"), "Hello, what can I do for you?")
+        self.assertTrue(self.chatbot.processMessage("Contract", "1").find("When you move we need your new address") >= 0)
+        self.assertEqual(self.chatbot.processMessage("OK", "1"), "What is the new street name and number?")
+
 if __name__ == '__main__':
     unittest.main()
