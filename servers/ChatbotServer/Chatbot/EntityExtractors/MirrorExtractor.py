@@ -3,5 +3,7 @@ from EntityExtractors import Match
 
 
 class MirrorExtractor(EntityExtractor):
-    def extractFromText(self, message, entities):
-        return [Match(entities[0], message)]
+    def extractFromText(self, message, entities, currentEntity):
+        if currentEntity:
+            return [Match(currentEntity.name, message)]
+        return []

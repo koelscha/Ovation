@@ -1,6 +1,7 @@
 import importlib
 from Entity import Entity
 from enum import Enum
+from collections import OrderedDict
 
 class State(Enum):
     init = 1
@@ -13,7 +14,9 @@ class BusinessCase:
         self.name = config["name"]
         self.intent = config["intent"]
         entities = [Entity(e) for e in config["entities"]] if "entities" in config else []
-        self.entities = {e.name: e for e in entities}
+        self.entities = OrderedDict()
+        for e in entities:
+            self.entities[e.name] = e
         if "businessLogic" in config:
             module = importlib.import_module("BusinessLogic." + config["businessLogic"])
             self.businessLogic = getattr(module, config["businessLogic"])()
@@ -23,15 +26,19 @@ class BusinessCase:
         self.openingQuestion = config["openingQuestion"]
         self.state = State.init
         self.currentEntity = None
-        if "businessLogic" in config:
+        if "extractor" in config:
             module = importlib.import_module("EntityExtractors." + config["extractor"])
             self.extractor = getattr(module, config["extractor"])()
         else:
-            self.businessLogic = None
+            self.extractor = None
 
     def processMessage(self, message, clientId, attachments):
+
         if self.state is State.init:
-            self.state = State.waitForAnswer
+            if self.extractor:
+                self.state = State.waitForAnswer
+            else:
+                self.state = State.confirmed
             return self.openingQuestion
         elif self.state is State.waitForAnswer:
             self.extractEntities(message, attachments)
@@ -56,14 +63,14 @@ class BusinessCase:
         if attachments:
             for attachment in attachments:
                 emptyEntities = self.getEmptyEntities()
-                matches = self.extractor.extractFromImage(attachment, emptyEntities)
+                matches = self.extractor.extractFromImage(attachment, emptyEntities, self.currentEntity)
                 for match in matches:
                     self.entities[match.name].value = match.value
                     self.entities[match.name].confidence = match.confidence
 
         if message:
             emptyEntities = self.getEmptyEntities()
-            matches = self.extractor.extractFromText(message, emptyEntities)
+            matches = self.extractor.extractFromText(message, emptyEntities, self.currentEntity)
             for match in matches:
                 self.entities[match.name].value = match.value
                 self.entities[match.name].confidence = match.confidence
