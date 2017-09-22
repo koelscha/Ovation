@@ -7,7 +7,7 @@ class EntityExtractor:
     def extractFromImage(self, attachment, emptyEntities, currentEntity):
         extractedEntities = dict()
         extractedEntities["name"] = (Match("name", "Marc"))
-        extractedEntities["street"] = (Match("street", "Burggrafenstr.", 1))
+        extractedEntities["street"] = (Match("street", "Burggrafenstr. 61", 1))
         extractedEntities["streetnumber"] = (Match("streetnumber", "61", 1))
         extractedEntities["zip"] = (Match("zip", "10787", 1))
         extractedEntities["city"] = (Match("city", "Berlin", 1))

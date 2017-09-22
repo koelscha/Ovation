@@ -11,7 +11,7 @@ class SpacyExtractor(EntityExtractor):
     def extractFromText(self, message, emptyEntities, currentEntity):
         result = dict()
         _, area, _, streetname, _, streetnumber, _, zipcode, _, date_ = spacyEnd.main(
-            '../../../../models/model_synth_street',
+            '../../../models/model_synth_street',
                                                                             'street-name', message)
 
         if (area):
