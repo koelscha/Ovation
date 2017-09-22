@@ -6,26 +6,31 @@
       "intent": "contract",
       "businessLogic": "InsuranceCalculator",
       "openingQuestion": "When you move we need your new address and some details for your household insurance.\n If you want you can simply send us a photo of the new rental contract.",
-      "extractor": "MirrorExtractor",
+      "extractor": "SpacyExtractor",
       "entities": [
         {
           "name": "street",
+          "extractor": "MirrorExtractor",
           "question": "What is the new street name and number?"
         },
         {
           "name": "zip",
+          "extractor": "MirrorExtractor",
           "question": "What is the new zip code?"
         },
         {
           "name": "city",
+          "extractor": "MirrorExtractor",
           "question": "In which city will you live?"
          },
          {
           "name": "area",
+           "extractor": "MirrorExtractor",
           "question": "How large is the new home in square meters?"
          },
          {
           "name": "date",
+           "extractor": "MirrorExtractor",
           "question": "When will you move into your new home?"
          }
       ]
