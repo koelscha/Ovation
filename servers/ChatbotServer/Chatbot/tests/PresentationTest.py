@@ -38,7 +38,7 @@ class PresentationTest(unittest.TestCase):
         self.chatbot = ChatBot(fileName)
         self.assertEqual(self.chatbot.processMessage("Hello", "1"), "Hello, what can I do for you?")
         self.assertTrue(self.chatbot.processMessage("Contract", "1").find("When you move we need your new address") >= 0)
-        self.assertEqual(self.chatbot.processMessage("OK", "1"), "What is the new street name and number?")
+        self.assertEqual(self.chatbot.processMessage("My new flat is located in Saarbrücker Str. 36, 10787 Berlin and has 64 sqm", "1"), "What is the new zip code?")
 
 if __name__ == '__main__':
     unittest.main()
