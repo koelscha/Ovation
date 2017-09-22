@@ -1,7 +1,7 @@
-import json
 import unittest
 
 from chatbot import ChatBot
+
 
 class PresentationTest(unittest.TestCase):
     def setUp(self):
@@ -10,8 +10,10 @@ class PresentationTest(unittest.TestCase):
 
     def test_answer_with_name(self):
         self.assertEqual(self.chatbot.processMessage("Hello", "1"), "Hello, what can I do for you?")
-        self.assertTrue(self.chatbot.processMessage("Contract", "1").find("When you move we need your new address")>=0)
-        self.assertEqual(self.chatbot.processMessage("OK", "1"), "What is the new street name and number?")
+        self.assertTrue(
+            self.chatbot.processMessage("I am going to move soon, and I am having trouble about the price change",
+                                        "1").find("When you move we need your new address") >= 0)
+        self.assertEqual(self.chatbot.processMessage("01.10.2017", "1"), "What is the new street name and number?")
         self.assertEqual(self.chatbot.processMessage("Saarbrückerstraße 36", "1"), "What is the new zip code?")
         self.assertEqual(self.chatbot.processMessage("10787", "1"), "In which city will you live?")
         self.assertEqual(self.chatbot.processMessage("Berlin", "1"), "How large is the new home in square meters?")
@@ -22,6 +24,14 @@ class PresentationTest(unittest.TestCase):
         self.assertTrue(result.find("Berlin")>=0)
         self.assertTrue(result.find("1st of October")>=0)
         self.assertTrue(result.find("104") >= 0)
+
+    def testLostInsuranceCard(self):
+        self.assertEqual(self.chatbot.processMessage("Hello", "1"), "Hello, what can I do for you?")
+        self.assertTrue(self.chatbot.processMessage("I have lost my insurance card. What should I do?", "1").find(
+            "No problem") >= 0)
+        self.assertEqual(self.chatbot.processMessage("Oh, great", "1"), "What is your insurance number?")
+        self.assertEqual(self.chatbot.processMessage("1234", "1"), "What is your birthdate?")
+        self.assertTrue(self.chatbot.processMessage("01.02.2001", "1").find("1234") >= 0)
 
 if __name__ == '__main__':
     unittest.main()

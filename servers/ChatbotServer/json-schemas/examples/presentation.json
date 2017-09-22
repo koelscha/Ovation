@@ -34,6 +34,23 @@
       "name": "Welcome",
       "intent": "greeting",
       "openingQuestion": "Hello, what can I do for you?"
+    },
+    {
+      "name": "LostInsuranceCard",
+      "intent": "lost",
+      "openingQuestion": "No problem. Please provide your insurance number and you birthdate for verification.",
+      "businessLogic": "BlockInsuranceCard",
+      "extractor": "MirrorExtractor",
+      "entities": [
+        {
+          "name": "insuranceNo",
+          "question": "What is your insurance number?"
+        },
+        {
+          "name": "birthdate",
+          "question": "What is your birthdate?"
+        }
+      ]
     }
   ]
 }

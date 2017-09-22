@@ -1,12 +1,5 @@
 {
   "rasa_nlu_data": {
-
-    "entity_synonyms": [
-      {
-        "value": "insurance",
-        "synonyms": ["Insurance"]
-      }
-    ],
     "common_examples": [
       {
         "text": "lost",
@@ -38,7 +31,7 @@
         "intent": "lost",
         "entities": []
       },
-            {
+      {
         "text": "I lost my insurance card. What should I do?",
         "intent": "lost",
         "entities": []
@@ -73,7 +66,6 @@
         "intent": "contract",
         "entities": []
       },
-
       {
         "text": "I want to change my insurance contract",
         "intent": "contract",
@@ -193,6 +185,15 @@
         "text": "dear sir",
         "intent": "greeting",
         "entities": []
+      }
+    ],
+    "regex_features": [],
+    "entity_synonyms": [
+      {
+        "synonyms": [
+          "Insurance"
+        ],
+        "value": "insurance"
       }
     ]
   }

@@ -10,9 +10,4 @@ class InsuranceCalculator(BusinessLogic):
                                   self.getValueByName(entities, 'area'),
                                   self.getValueByName(entities, 'date'))
 
-    def getValueByName(self, entities, name):
-        for entity in entities:
-            if entity.name == name:
-                return entity.value
-        return "unknown entity: {}".format(name)
 
