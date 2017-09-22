@@ -12,11 +12,11 @@ class ChatbotTest(unittest.TestCase):
                 "name": "Test",
                 "intent": "contract",
                 "confirmationPhrase": "Bye!",
+                "extractor": "MirrorExtractor",
                 "entities": [
                     {
                         "name": "name",
-                        "question": "Name?",
-                        "extractor": "MirrorExtractor"
+                        "question": "Name?"
                     }
                 ],
                 "businessLogic": "EntityResponder",
