@@ -37,13 +37,15 @@ class ChatbotServer:
         response = http.post(self.smoopeRegisterURL, data=json.dumps(self.myMessageURL), headers=headers)
         try:
             response.raise_for_status()
+            print('Sucessfully registered as chatbot to ' + self.smoopeRegisterURL)
         except requests.exceptions.HTTPError:
             print('Request failed with http status ' + str(response.status_code))
 
 
     def start(self):
-        self.register()
         self.app.run(host='0.0.0.0')
+        self.register()
+
 
 
 class MessageHandler(Resource):

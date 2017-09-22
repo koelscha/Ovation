@@ -1,30 +1,45 @@
 import json
 
 from BusinessCase import BusinessCase, State
-#from IntentClassifiers.RasaClassifier import RasaClassifier
+# from IntentClassifiers.RasaClassifier import RasaClassifier
 from IntentClassifiers.SimpleClassifier import SimpleClassifier
 
 
 class ChatBot:
     def __init__(self, file_name):
-        with open(file_name) as f:
-            self.config = json.load(f)
-        businessCases = [BusinessCase(b) for b in self.config["businessCases"]]
-        self.businessCases = {b.intent: b for b in businessCases}
-        self.currentBusinessCase = None
+        self.clientSessions = {}
+        self.config_file_name = file_name
         self.intentClassifier = SimpleClassifier()
 
     def processMessage(self, message, clientId, attachments=None):
         result = None
 
-        if not self.currentBusinessCase:
+        currentClientBusinessCase = self.getCurrentBusinessCase(clientId)
+        if not currentClientBusinessCase:
             intent = self.intentClassifier.classify(message)
-            self.currentBusinessCase = self.businessCases[intent]
+            self.setCurrentBusinessCase(clientId, intent)
+            currentClientBusinessCase = self.getCurrentBusinessCase(clientId)
 
-        if self.currentBusinessCase.state is State.confirmed:
-            self.currentBusinessCase = None
-            result = self.processMessage(message,clientId, attachments)
+        if currentClientBusinessCase.state is State.confirmed:
+            self.resetBusinessCase(clientId)
+            result = self.processMessage(message, clientId, attachments)
         else:
-            result = self.currentBusinessCase.processMessage(message, clientId, attachments)
+            result = currentClientBusinessCase.processMessage(message, clientId, attachments)
 
         return result
+
+    def getCurrentBusinessCase(self, clientId):
+        return self.clientSessions[clientId]
+
+    def setCurrentBusinessCase(self, clientId, intent):
+        with open(self.config_file_name) as f:
+            config = json.load(f)
+        jsonBusinessCases = config["businessCases"]
+        businessCasesForIntent = [jsonCase for jsonCase in jsonBusinessCases if jsonCase["intent"] == intent]
+        newCase = BusinessCase(businessCasesForIntent[0]) if len(businessCasesForIntent) == 1 else None
+        if not newCase:
+            raise Exception("No business case registered for inten '"+ intent + "'")
+        self.clientSessions[clientId] = newCase
+
+    def resetBusinessCase(self, clientId):
+        self.clientSessions.pop(clientId)
