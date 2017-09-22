@@ -1,6 +1,7 @@
-'''from IntentClassifiers import IntentClassifier
 from rasa_nlu.config import RasaNLUConfig
 from rasa_nlu.model import Interpreter
+
+from IntentClassifiers import IntentClassifier
 
 
 class RasaClassifier(IntentClassifier):
@@ -11,4 +12,3 @@ class RasaClassifier(IntentClassifier):
 
     def classify(self, message):
         return self.interpreter.parse(message, "utf-8")['intent']['name']
-'''

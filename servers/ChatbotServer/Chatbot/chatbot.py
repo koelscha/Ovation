@@ -1,8 +1,10 @@
 import json
 
 from BusinessCase import BusinessCase, State
-#from IntentClassifiers.RasaClassifier import RasaClassifier
-from IntentClassifiers.SimpleClassifier import SimpleClassifier
+from IntentClassifiers.RasaClassifier import RasaClassifier
+
+
+# from IntentClassifiers.SimpleClassifier import SimpleClassifier
 
 
 class ChatBot:
@@ -12,7 +14,7 @@ class ChatBot:
         businessCases = [BusinessCase(b) for b in self.config["businessCases"]]
         self.businessCases = {b.intent: b for b in businessCases}
         self.currentBusinessCase = None
-        self.intentClassifier = SimpleClassifier()
+        self.intentClassifier = RasaClassifier()
 
     def processMessage(self, message, clientId, attachments=None):
         result = None
