@@ -1,5 +1,3 @@
-import importlib
-
 class Entity:
     def __init__(self, config):
         self.name = config["name"]
