@@ -74,7 +74,7 @@ classify(message)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>374</x>
+      <x>396</x>
       <y>220</y>
       <w>187</w>
       <h>99</h>
@@ -90,7 +90,7 @@ confirmationPhrase</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1067</x>
+      <x>990</x>
       <y>253</y>
       <w>110</w>
       <h>66</h>
@@ -126,7 +126,7 @@ chatbot</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>462</x>
+      <x>484</x>
       <y>308</y>
       <w>55</w>
       <h>77</h>
@@ -151,11 +151,11 @@ chatbot</panel_attributes>
     <coordinates>
       <x>330</x>
       <y>264</y>
-      <w>66</w>
+      <w>88</w>
       <h>33</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;40.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -171,14 +171,14 @@ chatbot</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>550</x>
+      <x>572</x>
       <y>242</y>
-      <w>110</w>
+      <w>88</w>
       <h>44</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 1..n</panel_attributes>
-    <additional_attributes>80.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>60.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -194,51 +194,13 @@ chatbot</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>990</x>
+      <x>957</x>
       <y>264</y>
-      <w>99</w>
+      <w>55</w>
       <h>33</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>814</x>
-      <y>352</y>
-      <w>473</w>
-      <h>517</h>
-    </coordinates>
-    <panel_attributes>bg=yellow
-def onReceiveMessage()
-
-if CB is in initial state
-  Chatbot calls IntentClassifier
-  IntentClassifer provides Intent
-  Chatbot checks which BusinessCase matches to intent
-  Chatbot changes to EntityExtractionStatus
-  Chatbot gets next empty entity from BusinessCase
-  Chatbot sends Question for this Entity to Messenger
-  
-if CB is in EntityExtractionStatus
-  CB sends message to EntityExtractor of current entity
-  EntityExtractor returns value
-  if value is not empty
-    CB stores value in first empty entity
-  else (if counter &lt; 3)
-    CB sends question again to Messenger
-  CB asks BusinessCase getNextEmptyEntity
-  if exists
-    currentEntity = next
-  else
-    status = initial
-    currentBusinessCase=null
-    call businessLogic
-    send result
-    send confirmationPhrase
- </panel_attributes>
-    <additional_attributes/>
+    <additional_attributes>10.0;10.0;30.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -252,24 +214,9 @@ if CB is in EntityExtractionStatus
     <additional_attributes>10.0;30.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>154</x>
-      <y>0</y>
-      <w>286</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>Requirmeents:
-bg=yellow
-Exit entity extracton state
-User wants to correct entity
-include smart FIX</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>847</x>
+      <x>814</x>
       <y>253</y>
       <w>154</w>
       <h>55</h>
@@ -284,10 +231,10 @@ onMessageReceive()</panel_attributes>
     <coordinates>
       <x>781</x>
       <y>275</y>
-      <w>88</w>
+      <w>55</w>
       <h>33</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;30.0;10.0</additional_attributes>
   </element>
 </diagram>

@@ -2,6 +2,41 @@
   "rasa_nlu_data": {
     "common_examples": [
       {
+        "text": "Is my bike included in the household insurance?",
+        "intent": "bike",
+        "entities": []
+      },
+      {
+        "text": "bike",
+        "intent": "bike",
+        "entities": []
+      },
+      {
+        "text": "Is a bike included in my household insurance?",
+        "intent": "bike",
+        "entities": []
+      },
+      {
+        "text": "I would like to know is my bike is covered by the household insurance?",
+        "intent": "bike",
+        "entities": []
+      },
+      {
+        "text": "Are bicycles covered in my household insurance contract?",
+        "intent": "bike",
+        "entities": []
+      },
+      {
+        "text": "How about bicycles in the household insurance?",
+        "intent": "bike",
+        "entities": []
+      },
+      {
+        "text": "Does a bike cost extra in the household insurance?",
+        "intent": "bike",
+        "entities": []
+      },
+      {
         "text": "lost",
         "intent": "lost",
         "entities": []
