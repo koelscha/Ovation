@@ -3,8 +3,8 @@ from BusinessLogic import BusinessLogic
 
 class BikeCalculator(BusinessLogic):
     def processEntities(self, entities):
-        price = int(self.getValueByName(entities, 'price'))
+        price = float(self.getValueByName(entities, 'price').split("€")[0].replace(",", "."))
         if price > 1000:
-            return "We can include your bicycle into the household insurance for 11€ per year. Do you agree?"
+            return("Ihr Fahrrad ist aktuell nicht versichert. Ich kann Ihnen jedoch eine Zusatz-Versicherung für 11€ pro Jahr anbieten. Soll ich Ihnen ein Angebot zuschicken?")
         else:
-            return "Bikes are included up to a value of {} €".format(price)
+            return("Fahrräder sind bis zu einem Wert von 1000€ versichert. Sie müssen sich also keine Sorgen machen.")

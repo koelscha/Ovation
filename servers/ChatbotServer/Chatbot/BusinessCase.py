@@ -83,6 +83,7 @@ class BusinessCase:
                     self.entities[match.name].value = match.value
                     self.entities[match.name].confidence = match.confidence
                 emptyEntities = self.getEmptyEntities()
+            
             matches = self.extractor.extractFromText(message, emptyEntities, self.currentEntity)
 
             for match in matches:

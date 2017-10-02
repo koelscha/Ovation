@@ -3,9 +3,10 @@
   "businessCases": [
     {
       "name": "Change of Contract",
-      "intent": "contract",
+      "intent": "Vertrag",
       "businessLogic": "InsuranceCalculator",
       "openingQuestion": "Wenn Sie umziehen, brauchen wir Ihre neue Adresse und einige Details für ihre Hausratsvericherung.\nSie können uns einfach ein Photo ihres neuen Mietvertrags zusenden, oder die Daten selbst eingeben.",
+      "confirmationPhrase": "Auf Wiedersehen",
       "extractor": "MirrorExtractor",
       "entities": [
         {
@@ -42,19 +43,36 @@
     },
     {
       "name": "Welcome",
-      "intent": "greeting",
+      "intent": "Begrüßung",
       "openingQuestion": "Hallo, was kann ich für Sie tun?"
     },
     {
       "name": "LostInsuranceCard",
-      "intent": "lost",
+      "intent": "verloren",
       "openingQuestion": "Kein Problem. Geben Sie zur Verifikation bitte ihre Versichertennummer und ihr Geburtsdatum ein.",
       "businessLogic": "BlockInsuranceCard",
       "extractor": "MirrorExtractor",
       "entities": [
         {
           "name": "insuranceNo",
-          "question": "Geben Sie bitte ihre Versichertennummer ein."
+          "question": "Geben Sie bitte Ihre Versichertennummer ein."
+        },
+        {
+          "name": "birthdate",
+          "question": "Wann ist Ihr Geburtstag?"
+        }
+      ]
+    },
+    {
+      "name": "LostInsuranceCard",
+      "intent": "Verloren",
+      "openingQuestion": "Kein Problem. Geben Sie zur Verifikation bitte ihre Versichertennummer und ihr Geburtsdatum ein.",
+      "businessLogic": "BlockInsuranceCard",
+      "extractor": "MirrorExtractor",
+      "entities": [
+        {
+          "name": "insuranceNo",
+          "question": "Geben Sie bitte Ihre Versichertennummer ein."
         },
         {
           "name": "birthdate",
@@ -64,9 +82,10 @@
     },
     {
       "name": "Bicycle Included",
-      "intent": "bike",
+      "intent": "Fahrrad",
       "openingQuestion": "Ich werde das überprüfen. Können Sie mir den Preis Ihres Fahrrads nennen oder ein Photo der Rechnung schicken?",
       "businessLogic": "BikeCalculator",
+      "confirmationPhrase": "Ein Angebot für eine Fahrrad-Zusatzversicherung ist auf dem Weg zu Ihnen. Wenn Sie dieses annehmen wollen, senden Sie es bitte im beiliegenden Umschlag unterschrieben an uns zurück.\nVielen Dank", 
       "extractor": "MirrorExtractor",
       "entities": [
         {

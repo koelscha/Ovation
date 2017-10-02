@@ -51,6 +51,7 @@ class ChatbotServer:
 
 class MessageHandler(Resource):
     def post(self):
+        print("post")
         message, clientId, attachments = request.get_json()["message"], request.get_json()["clientId"], request.get_json()["attachments"]
         threading.Thread(target=self.onMessageReceived(message, clientId, attachments)).start()
 

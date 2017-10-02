@@ -3,7 +3,5 @@ from BusinessLogic import BusinessLogic
 
 class BlockInsuranceCard(BusinessLogic):
     def processEntities(self, entities):
-        return ("Dear Mr. Dahlem. We blocked your insurance card for insurance number {}.\n"
-                "We will send you immediately a new one, which you will find in your postbox "
-                "within the next two working days. Is there anything else I can do?").format(self.getValueByName(entities, 'insuranceNo'))
+        return ("Sehr geehrtet Herr Dahlem, ich habe Ihre Versichertenkarte gesperrt und umgehend eine neue an Sie versenden lassen. Sie werden diese in den nächsten Tagen im Briefkasten finden.\n\nAuf Wiedersehen")
 

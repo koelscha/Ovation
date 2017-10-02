@@ -1,5 +1,6 @@
 {
+  "language": "de",
   "pipeline": "spacy_sklearn",
   "path" : "./models",
-  "data" : "./data/intents_training.json"
+  "data" : "./intents_training.json"
 }

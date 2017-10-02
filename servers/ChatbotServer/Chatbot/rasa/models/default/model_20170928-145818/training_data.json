@@ -1,0 +1,235 @@
+{
+  "rasa_nlu_data": {
+    "entity_synonyms": [
+      {
+        "value": "insurance",
+        "synonyms": [
+          "Insurance"
+        ]
+      }
+    ],
+    "common_examples": [
+      {
+        "entities": [],
+        "intent": "Fahrrad",
+        "text": "Ist mein Fahrrad in der Hausratsversicherung mit abgedeckt?"
+      },
+      {
+        "entities": [],
+        "intent": "Fahrrad",
+        "text": "Fahrrad"
+      },
+      {
+        "entities": [],
+        "intent": "Fahrrad",
+        "text": "Ist ein Fahrrad in der Hausratsversicherung mit abgedeckt?"
+      },
+      {
+        "entities": [],
+        "intent": "Fahrrad",
+        "text": "Ich w\u00fcrde gerne wissen ob mein Fahrrad in der Hausratsversicherung mit abgedeckt ist."
+      },
+      {
+        "entities": [],
+        "intent": "Fahrrad",
+        "text": "Sind Fahrr\u00e4der in meinem Hausratsversicherungsvertrag mit abgedeckt?"
+      },
+      {
+        "entities": [],
+        "intent": "Fahrrad",
+        "text": "Was ist mit Fahrr\u00e4dern in der Hausratsversicherung?"
+      },
+      {
+        "entities": [],
+        "intent": "Fahrrad",
+        "text": "Kosten Fahrr\u00e4der in der Hausratsversicherung extra?"
+      },
+      {
+        "entities": [],
+        "intent": "Verloren",
+        "text": "Verloren"
+      },
+      {
+        "entities": [],
+        "intent": "Verloren",
+        "text": "Verloren"
+      },
+      {
+        "entities": [],
+        "intent": "Verloren",
+        "text": "Ich habe meine Versicherungskarte verloren."
+      },
+      {
+        "entities": [],
+        "intent": "Verloren",
+        "text": "Ich habe meine Versicherungskarte fallen gelassen."
+      },
+      {
+        "entities": [],
+        "intent": "verloren",
+        "text": "heruntergefallen"
+      },
+      {
+        "entities": [],
+        "intent": "verloren",
+        "text": "Ich kann meine Versicherungskarte nicht finden."
+      },
+      {
+        "entities": [],
+        "intent": "verloren",
+        "text": "Ich habe meine Versicherungskarte verloren. Was soll ich machen?"
+      },
+      {
+        "entities": [],
+        "intent": "verloren",
+        "text": "Ich habe meine Versicherungskarte fallengelassen. Was muss ich machen?"
+      },
+      {
+        "entities": [],
+        "intent": "verloren",
+        "text": "Ich habe meine Versicherungskarte fallengelassen."
+      },
+      {
+        "entities": [],
+        "intent": "verloren",
+        "text": "Ich kann meine Versicherungskarte nicht finden. Wen soll ich anrufen?"
+      },
+      {
+        "entities": [],
+        "intent": "Vertrag",
+        "text": "Ich will wissen wie sich der Versicherungspreis ver\u00e4ndert."
+      },
+      {
+        "entities": [],
+        "intent": "Vertrag",
+        "text": "Ich will meinen Versicherungsvertrag \u00e4ndern."
+      },
+      {
+        "entities": [],
+        "intent": "Vertrag",
+        "text": "Versicherungsvertrag"
+      },
+      {
+        "entities": [],
+        "intent": "Vertrag",
+        "text": "Ich will meinen Versicherungsvertrag wechseln."
+      },
+      {
+        "entities": [],
+        "intent": "Vertrag",
+        "text": "Ich will umziehen."
+      },
+      {
+        "entities": [],
+        "intent": "Vertrag",
+        "text": "Ich werde umziehen."
+      },
+      {
+        "entities": [],
+        "intent": "Vertrag",
+        "text": "Ich will meine Adresse \u00e4ndern."
+      },
+      {
+        "entities": [],
+        "intent": "Vertrag",
+        "text": "Ich werde bald umziehen."
+      },
+      {
+        "entities": [],
+        "intent": "Vertrag",
+        "text": "umziehen"
+      },
+      {
+        "entities": [],
+        "intent": "Vertrag",
+        "text": "Ich bin umgezogen."
+      },
+      {
+        "entities": [],
+        "intent": "Vertrag",
+        "text": "umgezogen"
+      },
+      {
+        "entities": [],
+        "intent": "Vertrag",
+        "text": "Ich werde bald umziehen."
+      },
+      {
+        "entities": [],
+        "intent": "Vertrag",
+        "text": "Ich bin nach Kaiserslautern gezogen."
+      },
+      {
+        "entities": [],
+        "intent": "Vertrag",
+        "text": "Ich werde in eine andere Stadt umziehen."
+      },
+      {
+        "entities": [],
+        "intent": "Begr\u00fc\u00dfung",
+        "text": "hey"
+      },
+      {
+        "entities": [],
+        "intent": "Begr\u00fc\u00dfung",
+        "text": "Hallo meine Name ist Max Mustermann."
+      },
+      {
+        "entities": [],
+        "intent": "Begr\u00fc\u00dfung",
+        "text": "yo"
+      },
+      {
+        "entities": [],
+        "intent": "Begr\u00fc\u00dfung",
+        "text": "Was geht ab?"
+      },
+      {
+        "entities": [],
+        "intent": "Begr\u00fc\u00dfung",
+        "text": "Mein name ist"
+      },
+      {
+        "entities": [],
+        "intent": "Begr\u00fc\u00dfung",
+        "text": "Hallo"
+      },
+      {
+        "entities": [],
+        "intent": "Begr\u00fc\u00dfung",
+        "text": "howdy"
+      },
+      {
+        "entities": [],
+        "intent": "Begr\u00fc\u00dfung",
+        "text": "Hallo"
+      },
+      {
+        "entities": [],
+        "intent": "Begr\u00fc\u00dfung",
+        "text": "Hi"
+      },
+      {
+        "entities": [],
+        "intent": "Begr\u00fc\u00dfung",
+        "text": "Guten Morgen"
+      },
+      {
+        "entities": [],
+        "intent": "Begr\u00fc\u00dfung",
+        "text": "Hallo"
+      },
+      {
+        "entities": [],
+        "intent": "Begr\u00fc\u00dfung",
+        "text": "Guten Abend"
+      },
+      {
+        "entities": [],
+        "intent": "Begr\u00fc\u00dfung",
+        "text": "Sehr geehrter"
+      }
+    ],
+    "regex_features": []
+  }
+}

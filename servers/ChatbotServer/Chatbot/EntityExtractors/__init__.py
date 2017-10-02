@@ -7,13 +7,15 @@ class EntityExtractor:
     def extractFromImage(self, attachment, emptyEntities, currentEntity):
         extractedEntities = dict()
         extractedEntities["name"] = (Match("name", "Marc"))
-        extractedEntities["street"] = (Match("street", "Burggrafenstr. 61", 1))
+        extractedEntities["street"] = (Match("street", "Burggrafenstr.", 1))
         extractedEntities["streetnumber"] = (Match("streetnumber", "61", 1))
         extractedEntities["zip"] = (Match("zip", "10787", 1))
         extractedEntities["city"] = (Match("city", "Berlin", 1))
         extractedEntities["country"] = (Match("country", "Deutschland", 1))
         extractedEntities["date"] = (Match("date", None, 1))
-        extractedEntities["area"] = (Match("area", 67, 1))
+        extractedEntities["area"] = (Match("area", "67", 1))
+        extractedEntities["price"] = (Match("price", "499.99€", 1))
+        extractedEntities["invoiceDate"] = (Match("invoiceDate", "499.99€", 1))
         return self.postExtract(extractedEntities, emptyEntities)
 
     def postExtract(self, extractedEntities, emptyEntities):
@@ -27,6 +29,7 @@ class EntityExtractor:
         return [match for match in extractedEntities.values() if match.name in emptyEntities]
 
     def address_getter(self, zip_code):
+        print("zip code extractor")
         zip_code_pad = str(zip_code).zfill(5)
         url = "http://maps.googleapis.com/maps/api/geocode/json?address=" + zip_code_pad + "&&components=country:DE"
         response = requests.get(url)

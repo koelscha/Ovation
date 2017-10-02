@@ -19,10 +19,10 @@ class SpacyExtractor(EntityExtractor):
 
         if (streetname):
             result["street"] = (Match("street", streetname, None))
-
+            
         if (streetnumber):
             result["streetnumber"] = (Match("streetnumber", streetnumber, None))
-
+            
         if (zipcode):
             result["zip"] = (Match("zip", zipcode, None))
 
