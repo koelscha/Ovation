@@ -3,12 +3,13 @@ from __future__ import absolute_import, division, print_function
 
 import csv
 import re
+import codecs
 
 import timex as RTag
 
 
 def readStreetAdd():
-    with open('berlin.csv') as csvfile:
+    with codecs.open('berlin.csv', 'r', 'utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
         streetNames = set()
         for row in reader:
@@ -21,7 +22,7 @@ def readStreetAdd():
 # print aList
 
 def readStreetNames():
-    with open('StreetNames_v1.csv') as csvfile:
+    with codecs.open('StreetNames_v1.csv', 'r', 'utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
         streetNames = set()
         for row in reader:
@@ -33,7 +34,7 @@ def readStreetNames():
 
 
 def writeNames(aList):
-    with open('StreetNames1.csv', 'w') as f:
+    with codecs.open('StreetNames1.csv', 'w', 'utf-8') as f:
         for s in aList:
             f.write(s.encode("UTF-8") + '\n')
 
