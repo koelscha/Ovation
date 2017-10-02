@@ -1,0 +1,74 @@
+{
+  "api": "1.0.0-SNAPSHOT",
+  "businessCases": [
+    {
+      "name": "Change of Contract",
+      "intent": "contract",
+      "businessLogic": "InsuranceCalculator",
+      "openingQuestion": "Wenn Sie umziehen, brauchen wir Ihre neue Adresse und einige Details für ihre Hausratsvericherungs.\nSie können uns einfach ein Photo ihres neuen Mietvertrags zusenden, oder die Daten selbst eingeben.",
+      "extractor": "SpacyExtractor",
+      "entities": [
+        {
+          "name": "street",
+          "extractor": "MirrorExtractor",
+          "question": "Bitte geben Sie die Straße und Hausnummer ein."
+        },
+        {
+          "name": "zip",
+          "extractor": "MirrorExtractor",
+          "question": "Bitte geben Sie die Postleitzahl ein."
+        },
+        {
+          "name": "city",
+          "extractor": "MirrorExtractor",
+          "question": "In welcher Stadt werden Sie wohnen"
+         },
+         {
+          "name": "area",
+           "extractor": "MirrorExtractor",
+          "question": "Wie groß ist die neue Wohnung in Quadratmetern?"
+         },
+         {
+          "name": "date",
+           "extractor": "MirrorExtractor",
+          "question": "Wann werden Sie umziehen?"
+         }
+      ]
+    },
+    {
+      "name": "Welcome",
+      "intent": "greeting",
+      "openingQuestion": "Hallo, was kann ich für Sie tun?"
+    },
+    {
+      "name": "LostInsuranceCard",
+      "intent": "lost",
+      "openingQuestion": "Kein Problem. Geben Sie zur Verifikation bitte ihre Versichertennummer und ihr Geburtsdatum ein.",
+      "businessLogic": "BlockInsuranceCard",
+      "extractor": "MirrorExtractor",
+      "entities": [
+        {
+          "name": "insuranceNo",
+          "question": "Geben Sie bitte ihre Versichertennummer ein."
+        },
+        {
+          "name": "birthdate",
+          "question": "Wann ist Ihr Geburtstag?"
+        }
+      ]
+    },
+    {
+      "name": "Bicycle Included",
+      "intent": "bike",
+      "openingQuestion": "Ich werde das überprüfen. Können Sie mir den Preis Ihres Fahrrads nennen oder ein Photo der Rechnung schicken?",
+      "businessLogic": "BikeCalculator",
+      "extractor": "MirrorExtractor",
+      "entities": [
+        {
+          "name": "price",
+          "question": "Wie viel hat Ihr Fahrrad gekostet?"
+        }
+      ]
+    }
+  ]
+}
