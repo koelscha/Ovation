@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# coding: utf8
+# -*- coding: <encoding-name> -*-
 """
 Example of training an additional entity type
 
@@ -40,25 +40,25 @@ def nerRec(model, ent_TAG, test_sent):
     doc = nlp(test_sent)
     address=""
     for ent in doc.ents:
-        print(ent.label_.upper()+':', ent.text)
+        #print(ent.label_.upper()+':', ent.text)
         if ent.label_.upper() == ent_TAG.upper():
             address = ent.text
-            print(address)
+            #print(address)
         #print(type(doc))
     #print(type(doc.ents))
     area=GetNames.detectEntities(test_sent)
     date = GetNames.detectDate(test_sent)
-    print("Area: ", area)
-    print("Date: ", date)
+    #print("Area: ", area)
+    #print("Date: ", date)
     
     zipCode,StreetNum,StreetName=AddressTokens.findAddressTokens(address)
-    print(zipCode)
-    print(StreetNum)
-    print(StreetName)
+    #print(zipCode)
+    #print(StreetNum)
+    #print(StreetName)
 
     tup = ("Area", area, "StreetName", StreetName, "StreetNum", StreetNum, "ZipCode", zipCode, "Date", date)
-    print('$$$$$$$$')
-    print(tup)
+    #print('$$$$$$$$')
+    #print(tup)
     return tup
 
 
@@ -68,14 +68,14 @@ def main(modelB,ent_TAG_B, st):
    # for i in range(len(lines)):
     #test_sent=lines[i]
     test_sent=st
-    print(test_sent)
+    #print(test_sent)
     #nerRec(modelA, ent_TAG_A, test_sent)
     tup=nerRec(modelB, ent_TAG_B, test_sent)
     return tup
 
 
 def testString(model,ent_TAG,s):
-    print(s)
+    #print(s)
     nerRec(model,ent_TAG,s)
 
 
