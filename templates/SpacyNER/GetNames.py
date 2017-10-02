@@ -45,7 +45,7 @@ def detectEntities(testSentence):
     testSentence = RTag.tag(testSentence)
 
 
-    print(testSentence)
+    #print(testSentence)
     if "<SIZE>" not in testSentence:
         return ""
 
@@ -59,7 +59,7 @@ def detectEntities(testSentence):
         s = testSentence[endIndex:]
         s = s.split("</SIZE>")[0]
         entList.append(s)
-        print("Found Area: ", s)
+        #print("Found Area: ", s)
 
         # s=testSentence.split("<SIZE>")[1]
         # s=s.split("</SIZE>")[0]
@@ -91,7 +91,7 @@ def detectDate(testSentence):
         s = testSentence[endIndex:]
         s = s.split("</DATE>")[0]
         entList.append(s)
-        print("Found Area: ", s)
+        #print("Found Area: ", s)
 
         # print(s)
     return entList
